@@ -1,2 +1,8 @@
 <h1>トップページです</h1>
+<% if logged_in? %>
+<%= link_to "ログアウト", logout_path, method: :delete %>
+<%= link_to "プロフィール", current_user %>
+<% else %>
+<%= link_to "ログイン", login_path %>
 <%= link_to "ユーザー登録", signup_path %>
+<% end %>
