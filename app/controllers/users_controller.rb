@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :destroy]
   
   def index
     @users = User.all.page(params[:page]).per(10)
@@ -39,6 +39,9 @@ class UsersController < ApplicationController
   end
   
   def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "ユーザーを削除しました"
+    redirect_to users_url
   end
   
   private

@@ -1,7 +1,8 @@
-User.create!(name: "Example User",
+User.create!(name: "加藤　浩輔",
             email: "example@nomady.com",
             password: "admin1234",
-            password_confirmation: "admin1234")
+            password_confirmation: "admin1234",
+            admin: true)
 
 
 50.times do |n|
