@@ -15,12 +15,13 @@ module Nomady
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.i18n.default_locale = :ja
   end
 end
 
 module ValidationMessageSample
   class Application < Rails::Application
-    config.load_defaults 6.0
+    config.load_defaults 5.2
 
     # 下の２行を追加する
     config.i18n.default_locale = :ja

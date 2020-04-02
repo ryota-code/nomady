@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+ 
+// Bootstrap読み込み
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Fontawesome読み込み
+@import 'font-awesome-sprockets';
+@import 'font-awesome';

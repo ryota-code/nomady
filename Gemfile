@@ -13,11 +13,24 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# Bootstrap追加
+gem 'bootstrap-sass', '3.3.7'
+
+# Twitterログイン実装
 gem 'omniauth-twitter'
+
+# サンプルユーザー追加
 gem 'faker', '1.7.3'
 
 # エラーメッセージ日本語化
 gem 'rails-i18n'
+
+#ページネーション
+gem 'kaminari'
+
+# fontawsome
+gem 'font-awesome-sass', '~> 5.4.1'
 
 group :development, :test do
   gem 'sqlite3'
