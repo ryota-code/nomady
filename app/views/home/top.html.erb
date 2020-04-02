@@ -3,8 +3,10 @@
 <%= link_to "ログアウト", logout_path, method: :delete %>
 <%= link_to "プロフィール", current_user %>
 <%= link_to "プロフィール設定", edit_user_path(current_user) %>
+<%= link_to "ユーザー一覧", users_path %>
 
 <% else %>
 <%= link_to "ログイン", login_path %>
 <%= link_to "ユーザー登録", signup_path %>
+<%= link_to "ユーザー一覧", users_path %>
 <% end %>
