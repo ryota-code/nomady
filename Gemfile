@@ -15,7 +15,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Bootstrap追加
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-sass', '3.4.1'
 
 # Twitterログイン実装
 gem 'omniauth-twitter'
