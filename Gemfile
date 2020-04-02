@@ -16,6 +16,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'omniauth-twitter'
 gem 'faker', '1.7.3'
 
+# エラーメッセージ日本語化
+gem 'rails-i18n'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

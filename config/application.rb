@@ -17,3 +17,13 @@ module Nomady
     # the framework and any gems in your application.
   end
 end
+
+module ValidationMessageSample
+  class Application < Rails::Application
+    config.load_defaults 6.0
+
+    # 下の２行を追加する
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+  end
+end
