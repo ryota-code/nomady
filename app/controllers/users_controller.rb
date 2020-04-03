@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @cafeposts = User.all.page(params[:page]).per(10)
   end
   
   def create
