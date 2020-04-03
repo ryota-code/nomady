@@ -1,8 +1,10 @@
 <%= form_for(@cafepost) do |f| %>
   <%= render 'shared/errors', object: f.object %>
   <div>
-    <%= f.text_area :title, placeholder: "タイトルを入力してください" %>
-    <%= f.text_area :content, placeholder: "内容を入力してください" %>
+    <p>タイトル</p>
+    <%= f.text_area :title, class: 'form-control' %>
+    <p>内容</p>
+    <%= f.text_area :content, class: 'form-control' %>
   </div>
   <%= f.submit "投稿" %>
 <% end %>

@@ -1,5 +1,5 @@
 class CafepostsController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :create, :destroy]
+  before_action :logged_in_user, only: [:new, :edit, :update, :create, :destroy]
   
   def new
     @cafepost = current_user.cafeposts.build if logged_in?
@@ -15,7 +15,7 @@ class CafepostsController < ApplicationController
   end
   
   def create
-    @cafepost = Cafepost.new(cafepost_params)
+    @cafepost = current_user.cafeposts.build(cafepost_params)
     if @cafepost.save
       flash[:success] = '投稿しました'
       redirect_to ('/')
