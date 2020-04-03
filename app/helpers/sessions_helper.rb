@@ -18,4 +18,9 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+  
+  # 現在のユーザーがuserと正しいかどうが判定
+  def good_user?(user)
+    user == current_user
+  end
 end

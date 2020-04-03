@@ -11,3 +11,6 @@
 <%= link_to "ユーザー登録", signup_path %>
 <%= link_to "ユーザー一覧", users_path %>
 <% end %>
+
+<%= render @post_items %>
+<%= paginate @post_items %>

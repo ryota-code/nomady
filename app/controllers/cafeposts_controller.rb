@@ -1,7 +1,8 @@
 class CafepostsController < ApplicationController
   before_action :logged_in_user, only: [:new, :edit, :update, :create, :destroy]
-  
+  before_action :good_user, only:[:destroy]
   def index
+    @post_items = Cafepost.all.page(params[:page]).per(10)
   end
   
   def new
@@ -21,18 +22,26 @@ class CafepostsController < ApplicationController
     @cafepost = current_user.cafeposts.build(cafepost_params)
     if @cafepost.save
       flash[:success] = '投稿しました'
-      redirect_to ('/')
+      redirect_to cafeposts_path
     else
       render 'new'
     end
   end
   
   def destroy
+    @cafepost.destroy
+    flash[:success] = "投稿を削除しました"
+    redirect_to request.referrer || root_url
   end
   
   private
+  
     def cafepost_params
       params.require(:cafepost).permit(:title, :content)
     end
-  
+    
+    def good_user
+      @cafepost = current_user.cafeposts.find_by(id: params[:id])
+      redirect_to root_url if @cafepost.nil?
+    end
 end
