@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   
   #投稿
+  get '/post' => 'cafeposts#new'
   resources :cafeposts
 end
