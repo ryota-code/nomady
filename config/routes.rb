@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/' => "home#top"
+  root 'home#top'
   
   # ユーザー
   get '/signup' => "users#new"
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   
   #投稿
+  get '/cafeposts' => "cafeposts#index"
   get '/post' => 'cafeposts#new'
   resources :cafeposts
 end

@@ -1,6 +1,9 @@
 class CafepostsController < ApplicationController
   before_action :logged_in_user, only: [:new, :edit, :update, :create, :destroy]
   
+  def index
+  end
+  
   def new
     @cafepost = current_user.cafeposts.build if logged_in?
   end
