@@ -15,3 +15,10 @@ User.create!(name: "加藤　浩輔",
               password_confirmation:  password
         )
 end
+
+users = User.order(:created_at).take(6)
+20.times do
+  title = Faker::Lorem.sentence(2)
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.cafeposts.create!(title: title, content: content) }
+end

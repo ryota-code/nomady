@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @cafeposts = User.all.page(params[:page]).per(10)
+    @cafeposts = @user.cafeposts.page(params[:page]).per(10)
   end
   
   def create
@@ -51,10 +51,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
     
-    def logged_in_user
-      unless logged_in?
-      flash[:danger] = "ログインしてください"
-      redirect_to login_url
-      end
-    end
+
 end
