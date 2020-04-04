@@ -14,6 +14,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# 画像投稿
+gem 'carrierwave'
+gem 'rmagick'
+
 # Bootstrap追加
 gem 'bootstrap-sass', '3.3.7'
 

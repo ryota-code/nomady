@@ -5,4 +5,5 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL, message: ' は正しい形式で入力してください' }
     has_secure_password
     validates :password, presence: true, length: { minimum: 4 }
+    mount_uploader :image, ImageUploader
 end
