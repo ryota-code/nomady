@@ -9,7 +9,27 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
-    
+    <div class="container">
+      <div class="header-left">
+        <%= link_to 'Nomady', '/cafepost' %>
+      </div>
+      <div class="header-right">
+        <ul class="header-nav">
+          <% if logged_in? %>
+          <li class="header-nav-item"><%= link_to "ログアウト", logout_path, method: :delete %></li>
+          <li class="header-nav-item"><%= link_to "プロフィール", current_user %></li>
+          <li class="header-nav-item"><%= link_to "プロフィール設定", edit_user_path(current_user) %></li>
+          <li class="header-nav-item"><%= link_to "ユーザー一覧", users_path %></li>
+          <li class="header-nav-item"><%= link_to "投稿", post_path %></li>
+          <% else %>
+          <li class="header-nav-item"><%= link_to "ログイン", login_path %></li>
+          <li class="header-nav-item"><%= link_to "ユーザー登録", signup_path %></li>
+          <li class="header-nav-item"><%= link_to "ユーザー一覧", users_path %></li>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
   </header>
   <body>
     <% flash.each do |message_type, message| %>

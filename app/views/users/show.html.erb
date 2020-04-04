@@ -1,7 +1,12 @@
 <h1>ユーザープロフィール表示ページです</h1>
 
 <%= @user.name %>
+
+<% if @user.image.url.nil? %>
+<%= image_tag 'noimage.png' %>
+<% else %>
 <%= image_tag @user.image.url %>
+<% end %>
 
 <% if @user.cafeposts.any? %>
 <%= render @cafeposts %>

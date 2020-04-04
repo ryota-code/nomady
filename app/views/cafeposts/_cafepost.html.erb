@@ -1,5 +1,9 @@
   <div class="user"><%= link_to cafepost.user.name, cafepost.user %></div>
+  <% if cafepost.image.url.nil? %>
+  <%= image_tag "noimage.png" %>
+  <% else %>
   <p class="thumbnail"><%= image_tag cafepost.image.url %></p>
+  <% end %>
   <h1 class="post__title"><%= cafepost.title%></h1>
   <p class="content"><%= cafepost.content %></p>
   <span class="timestamp">
