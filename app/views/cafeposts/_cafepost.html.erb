@@ -1,14 +1,17 @@
+<li class="post-item">
   <div class="user"><%= link_to cafepost.user.name, cafepost.user %></div>
   <% if cafepost.image.url.nil? %>
-  <%= image_tag "noimage.png" %>
+  <%= image_tag "noimage.png", alt: "thumbnail", class: "post-thumbnail", width: "200", height: "200" %>
   <% else %>
-  <p class="thumbnail"><%= image_tag cafepost.image.url %></p>
+  <%= image_tag cafepost.image.url, alt: "thumbnail", class: "post-thumbnail" %>
   <% end %>
-  <h1 class="post__title"><%= cafepost.title%></h1>
-  <p class="content"><%= cafepost.content %></p>
+  <h3>場所</h3>
+  <h3 class="post-title"><%= cafepost.title%></h3>
+  <p class="post-content"><%= cafepost.content %></p>
   <span class="timestamp">
      <%= time_ago_in_words(cafepost.created_at) %> 前に投稿されました
   </span>
   <% if good_user?(cafepost.user) %>
   <%= link_to "delete", cafepost, method: :delete, data: { confirm: "本当に削除しますか？" } %>
   <% end %>
+</li>
