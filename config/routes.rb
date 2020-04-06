@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   
   #投稿
-  get '/cafeposts' => "cafeposts#index"
+  get '/cafepost' => "cafeposts#index"
   get '/post' => 'cafeposts#new'
   resources :cafeposts
+  
+  # リレーションシップ
+  resources :relationships, only: [:create, :destroy]
 end

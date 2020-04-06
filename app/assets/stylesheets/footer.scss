@@ -1,0 +1,17 @@
+@import './variables';
+.footer-wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 1vh;
+}
+
+footer{
+  margin-top: auto;
+  background-color: $main-color;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.copy-right{
+  font-size: 1.2rem;
+}

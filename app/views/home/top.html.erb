@@ -1,2 +1,8 @@
-<h1>トップページです</h1>
-<%= link_to '入店する', cafeposts_path %>
+
+  <div class="top container">
+    <div class="top-wrapper">
+      <h3 class="copy">Bestな空間を見つけよう</h3>
+      <%= link_to 'ログイン', login_path, class: 'btn btn-login' %>
+      <%= link_to '新規登録', signup_path, class: 'btn btn-signup' %>
+    </div>
+  </div>
