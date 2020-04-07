@@ -36,6 +36,9 @@ gem 'kaminari'
 # fontawsome
 gem 'font-awesome-sass', '~> 5.4.1'
 
+# 住所自動入力
+gem 'jp_prefecture'
+gem 'jquery-rails' 
 
 
 group :development, :test do
