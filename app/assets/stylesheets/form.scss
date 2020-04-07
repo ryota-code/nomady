@@ -1,5 +1,5 @@
-input[type="email"], input[type="text"]{
-  width: 600px;
+input[type="email"], input[type="text"], input[type="password"]{
+  width: 100%;
   border: 3px solid #d8d8d8;
   font-size: 1.8rem;
   display: block;
@@ -23,12 +23,30 @@ input[type="email"], input[type="text"]{
   }
 }
 
+.form-wrapper{
+  margin: auto;
+  width: 50%;
+  dl{
+    margin-bottom: 30px;
+  }
+}
+
+
+// ユーザー登録
 .btn-register{
   background-color: #ec6d68;
   display: block;
-  margin: auto;
+  margin: 0 auto 20px auto;
 }
 
-.btn-post{
-  
+// ログイン
+.btn-login{
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+// プロフィール変更
+.btn-save{
+  display: block;
+  margin: 0 auto 20px auto;
 }

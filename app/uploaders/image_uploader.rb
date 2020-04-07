@@ -4,11 +4,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
  
  # 画像の上限を200x200にする
-  process :resize_to_limit => [200, 200]
+  process :resize_to_fill => [200, 200]
  
   # 保存形式をJPGにする
   process :convert => 'jpg'
-
+  
+  # デフォルト画像の設定
+  def default_url
+    'noimage.png'
+  end
  
   # jpg,jpeg,gif,pngしか受け付けない
   def extension_white_list

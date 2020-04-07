@@ -1,15 +1,27 @@
-<h1>ユーザープロフィール表示ページです</h1>
-
-<%= @user.name %>
-<%= render 'relationships/follow_btn', user: @user %>
-
-<% if @user.image.url.nil? %>
-<%= image_tag 'noimage.png' %>
-<% else %>
-<%= image_tag @user.image.url %>
-<% end %>
-
-<% if @user.cafeposts.any? %>
-<%= render @cafeposts %>
-<%= paginate @cafeposts %>
-<% end %>
+<div class="container">
+  <%= render 'relationships/follow_btn', user: @user %>
+  <div class="profile-wrapper">
+    <div class="profile-left">
+      <% if @user.image.url.nil? %>
+      <%= image_tag 'noimage.png' %>
+      <% else %>
+      <%= image_tag @user.image.url %>
+      <% end %>
+    </div>
+    <ul class="profile-right">
+      <li><%= @user.name %></li>
+      <li><%= @user.detail %></li>
+      <li>フォロー<%= @user.followings.count %>  フォロワー<%= @user.followers.count %></li>
+      <li>投稿数<%= @cafeposts.count %></li>
+    </ul>
+  </div>
+  
+  <% if @user.cafeposts.any? %>
+  <div class="container">
+    <ul class="post-items">
+    <%= render @cafeposts %>
+    </ul>
+    <%= paginate @cafeposts %>
+  </div>
+  <% end %>
+</div>

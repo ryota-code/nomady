@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_014131) do
+ActiveRecord::Schema.define(version: 2020_04_07_014120) do
 
   create_table "cafeposts", force: :cascade do |t|
     t.text "title"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_04_04_014131) do
     t.string "password_digest"
     t.boolean "admin"
     t.string "image"
+    t.string "detail"
   end
 
 end

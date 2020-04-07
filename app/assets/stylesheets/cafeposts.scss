@@ -7,8 +7,16 @@
 .post-items{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .post-item{
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 2px solid skyblue;
   width: calc( 100% / 3 );
+  img{
+    width: 100%;
+  }
 }

@@ -1,5 +1,7 @@
 <li class="post-item">
-  <div class="user"><%= link_to cafepost.user.name, cafepost.user %></div>
+  <div class="user">
+    <%= link_to cafepost.user.name, cafepost.user %>
+  </div>
   <% if cafepost.image.url.nil? %>
   <%= image_tag "noimage.png", alt: "thumbnail", class: "post-thumbnail", width: "200", height: "200" %>
   <% else %>
@@ -8,6 +10,9 @@
   <h3>場所</h3>
   <h3 class="post-title"><%= cafepost.title%></h3>
   <p class="post-content"><%= cafepost.content %></p>
+  <% unless cafepost.user.image.nil? %>
+  <%= image_tag cafepost.user.image.url %>
+  <% end %>
   <span class="timestamp">
      <%= time_ago_in_words(cafepost.created_at) %> 前に投稿されました
   </span>

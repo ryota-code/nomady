@@ -1,3 +1,29 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// ユーザー一覧ページ
+.users{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.user{
+  display: flex;
+  width: 48%;
+}
+
+// プロフィールページ
+.profile-wrapper{
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.profile-left{
+  margin-right: 50px;
+}
+
+.profile-right{
+  li{
+    font-size: 2.0rem;
+    font-weight: bold;
+  }
+}

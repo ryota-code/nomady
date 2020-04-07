@@ -1,19 +1,17 @@
-<div class="login wrapper">
-    <div class="row">
-        <%= form_for(:session, url: login_path) do |f| %>
+<div class="login form-wrapper">
+    <%= form_for(:session, url: login_path) do |f| %>
 
-        <dl>
-            <dt>メールアドレス</dt>
-            <dd> <%= f.email_field :email, class:'form-control' %></dd>
-        </dl>
-        <dl>
-            <dt>パスワード</dt>
-            <dd><%= f.password_field :password, class:'form-control' %></dd>
-        </dl>
+    <dl>
+        <dt>メールアドレス</dt>
+        <dd> <%= f.email_field :email, class:'form-control' %></dd>
+    </dl>
+    <dl>
+        <dt>パスワード</dt>
+        <dd><%= f.password_field :password, class:'form-control' %></dd>
+    </dl>
 
-        <%= f.submit "ログイン", class: "login_button" %>
-        <% end %>
-        
-         <p>初めてのご利用ですか? <%= link_to "新規登録はこちら", signup_path %></p>
-    </div>
+    <%= f.submit "ログイン", class: "btn btn-login" %>
+    <% end %>
+    
+     <p>初めてのご利用ですか? <%= link_to "新規登録はこちら", signup_path %></p>
 </div>

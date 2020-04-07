@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   
   # ユーザー
   get '/signup' => "users#new"
-  resources :users
+  resources :users do
+    member do
+      get :followings, :followers
+    end
+  end
   
   # セッション
   get '/login' => 'sessions#new'
@@ -11,7 +15,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   
   #投稿
-  get '/cafepost' => "cafeposts#index"
+  # get '/cafepost' => "cafeposts#index"
   get '/post' => 'cafeposts#new'
   resources :cafeposts
   
