@@ -7,6 +7,17 @@
     <%= f.text_area :title, class: 'form-control' %>
     <p>内容</p>
     <%= f.text_area :content, class: 'form-control' %>
+    <h2>カフェの住所</h2>
+    <p>郵便番号</p>
+    <%= form.text_field :postcode %>
+    <p>県名</p>
+    <%= form.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県' %><br>
+    <p>市</p>
+    <%= form.text_field :address_city %>
+    <p>番地</p>
+    <%= form.text_field :address_street %>
+    <p>建物名</p>
+    <%= form.text_field :address_building %>
   </div>
   <%= f.submit "投稿", class: 'btn btn-post' %>
 <% end %>

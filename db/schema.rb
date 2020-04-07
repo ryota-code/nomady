@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_014120) do
+ActiveRecord::Schema.define(version: 2020_04_07_093900) do
 
   create_table "cafeposts", force: :cascade do |t|
     t.text "title"
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 2020_04_07_014120) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.integer "postcode"
+    t.integer "prefecture_code"
+    t.string "address_city"
+    t.string "address_street"
+    t.string "address_building"
     t.index ["user_id"], name: "index_cafeposts_on_user_id"
   end
 
@@ -41,6 +46,11 @@ ActiveRecord::Schema.define(version: 2020_04_07_014120) do
     t.boolean "admin"
     t.string "image"
     t.string "detail"
+    t.integer "postcode"
+    t.integer "prefecture_code"
+    t.string "address_city"
+    t.string "address_street"
+    t.string "address_building"
   end
 
 end
