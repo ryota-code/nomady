@@ -7,9 +7,12 @@
   <% else %>
   <%= image_tag cafepost.image.url, alt: "thumbnail", class: "post-thumbnail" %>
   <% end %>
-  <h3>場所</h3>
+  <h3>店名</h3>
   <h3 class="post-title"><%= cafepost.title%></h3>
+  <p>紹介文</p>
   <p class="post-content"><%= cafepost.content %></p>
+  <p class="post-postcode">〒<%= cafepost.postcode %></p>
+  <p class="address"><%= cafepost.prefecture_code %><%= cafepost.address_city %><%= cafepost.address_street %><%= cafepost.address_building %></p>
   <% unless cafepost.user.image.nil? %>
   <%= image_tag cafepost.user.image.url %>
   <% end %>

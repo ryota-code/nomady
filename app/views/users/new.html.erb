@@ -2,28 +2,28 @@
     <%= form_for(@user) do |f| %>
     <%= render 'shared/errors', object: f.object %>
     <dl>
-        <dt>ユーザー名<span>*</span></dt>
-        <dd><%= f.text_field :name %></dd>
+      <dt>ユーザー名<span>*</span></dt>
+      <dd><%= f.text_field :name %></dd>
     </dl>
     <dl>
-        <dt>メールアドレス<span>*</span></dt>
-        <dd> <%= f.email_field :email %></dd>
+      <dt>メールアドレス<span>*</span></dt>
+      <dd> <%= f.email_field :email %></dd>
     </dl>
     <dl>
-        <dt>自己紹介<span>*</span></dt>
-        <dd><%= f.text_field :detail %></dd>
+      <dt>自己紹介<span>*</span></dt>
+      <dd><%= f.text_field :detail %></dd>
     </dl>
     <dl>
-        <dt>パスワード<span>*</span></dt>
-        <dd><%= f.password_field :password %></dd>
+      <dt>パスワード<span>*</span></dt>
+      <dd><%= f.password_field :password %></dd>
     </dl>
     <dl>
-        <dt>パスワード（確認）<span>*</span></dt>
-        <dd><%= f.password_field :password_confirmation %></dd>
+      <dt>パスワード（確認）<span>*</span></dt>
+      <dd><%= f.password_field :password_confirmation %></dd>
     </dl>
     <dl>
-        <dt>プロフィール画像</dt>
-        <dd><%= f.file_field :image, class: "register-profile-image" %></dd>
+      <dt>プロフィール画像</dt>
+      <dd><%= f.file_field :image, class: "register-profile-image" %></dd>
     </dl>
     <%= f.submit "登録する", class: "btn btn-register" %>
     <% end %>

@@ -1,23 +1,43 @@
-<%= form_for(@cafepost) do |f| %>
-  <%= render 'shared/errors', object: f.object %>
-  <div>
-    <p>サムネイル</p>
-    <%= f.file_field :image, class: 'form-control' %>
-    <p>タイトル</p>
-    <%= f.text_area :title, class: 'form-control' %>
-    <p>内容</p>
-    <%= f.text_area :content, class: 'form-control' %>
-    <h2>カフェの住所</h2>
-    <p>郵便番号</p>
-    <%= form.text_field :postcode %>
-    <p>県名</p>
-    <%= form.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県' %><br>
-    <p>市</p>
-    <%= form.text_field :address_city %>
-    <p>番地</p>
-    <%= form.text_field :address_street %>
-    <p>建物名</p>
-    <%= form.text_field :address_building %>
-  </div>
-  <%= f.submit "投稿", class: 'btn btn-post' %>
-<% end %>
+<div class="form-wrapper">
+  <%= form_for(@cafepost) do |f| %>
+    <%= render 'shared/errors', object: f.object %>
+    <div>
+      <dl>
+        <dt>サムネイル</p>
+        <dd><%= f.file_field :image %></dd>
+      </dl>
+      <dl>
+        <dt>店名</dt>
+        <dd><%= f.text_field :title %></dd>
+      </dl>
+      <dl>
+        <dt>紹介文</dt>
+        <dd><%= f.text_field :content %></dd>
+      </dl>
+      
+      <h2>カフェの住所</h2>
+      
+      <dl>
+        <dt>郵便番号</dt>
+        <dd><%= f.text_field :postcode %></dd>
+      </dl>
+      <dl>
+        <dt>県名</dt>
+        <dd><%= f.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県' %></dd>
+      </dl>
+      <dl>
+        <dt>市</dt>
+        <dd><%= f.text_field :address_city %></dd>
+      </dl>
+      <dl>
+        <dt>番地</dt>
+        <dd><%= f.text_field :address_street %></dd>
+      </dl>
+      <dl>
+        <dt>建物名</dt>
+        <dd><%= f.text_field :address_building %></dd>
+      </dl>
+    </div>
+    <%= f.submit "投稿", class: 'btn btn-post' %>
+  <% end %>
+</div>
