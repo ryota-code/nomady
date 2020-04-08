@@ -11,6 +11,9 @@
   <h3 class="post-title"><%= cafepost.title%></h3>
   <p>紹介文</p>
   <p class="post-content"><%= cafepost.content %></p>
+  <% if cafepost.wifi == "1" %>
+  <p>wifiあります</p>
+  <% end %>
   <p class="post-postcode">〒<%= cafepost.postcode %></p>
   <p class="address"><%= cafepost.prefecture_code %><%= cafepost.address_city %><%= cafepost.address_street %><%= cafepost.address_building %></p>
   <% unless cafepost.user.image.nil? %>

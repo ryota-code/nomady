@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_093900) do
+ActiveRecord::Schema.define(version: 2020_04_08_005316) do
 
   create_table "cafeposts", force: :cascade do |t|
     t.text "title"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_04_07_093900) do
     t.string "address_city"
     t.string "address_street"
     t.string "address_building"
+    t.boolean "wifi"
+    t.boolean "power"
     t.index ["user_id"], name: "index_cafeposts_on_user_id"
   end
 
