@@ -4,7 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
  
  # 画像の上限を200x200にする
-  process :resize_to_fit => [200, 200]
+  process :resize_to_fill => [100, 100]
  
   # 保存形式をJPGにする
   process :convert => 'jpg'

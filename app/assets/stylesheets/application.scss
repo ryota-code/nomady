@@ -23,11 +23,15 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+// 共通変数読み込み
+@import './variables';
+
 html{
   font-size: 62.5%;
 }
 
 body{
+  background-color: $sub-color;
   color: #082B48;
   line-height: 2;
   font-family: Verdana, Geneva, Tahoma, sans-serif;

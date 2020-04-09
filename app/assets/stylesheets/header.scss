@@ -1,5 +1,8 @@
+@import './variables';
+
 header{
   padding: 20px 0;
+  background-color: $main-color;
 }
 
 .header-wrapper{
@@ -9,8 +12,16 @@ header{
 
 .header-nav{
   display:flex;
+  color: #fff;
 }
 
 .header-nav-item{
   margin-right: 50px;
+  a{
+    color: #fff;
+  }
+}
+
+.header-left a{
+  color: #fff;
 }

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = 'ユーザー登録が完了しました。'
-      redirect_to ('/cafepost')
+      redirect_to ('/cafeposts')
     else
       render 'new'
     end

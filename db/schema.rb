@@ -48,11 +48,6 @@ ActiveRecord::Schema.define(version: 2020_04_08_005316) do
     t.boolean "admin"
     t.string "image"
     t.string "detail"
-    t.integer "postcode"
-    t.integer "prefecture_code"
-    t.string "address_city"
-    t.string "address_street"
-    t.string "address_building"
   end
 
 end

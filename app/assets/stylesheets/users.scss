@@ -1,29 +1,71 @@
+// 共通変数読み込み
+@import './variables';
+
 // ユーザー一覧ページ
+.user-wrapper{
+  padding: 50px;
+  h2{
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
 .users{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .user{
   display: flex;
-  width: 48%;
+  width: 45%;
+  height: 120px;
+  border: 1px solid $main-color;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  padding: 10px;
+  img{
+    border-radius: 50%;
+  }
+}
+
+.user-left{
+  margin-right: 20px;
 }
 
 // プロフィールページ
 .profile-wrapper{
   width: 60%;
-  margin: 0 auto;
+  margin: 50px auto 50px auto;
+  padding: 30px;
   display: flex;
+  border: 2px solid #2ECC71;
+  border-radius: 10px;
 }
 
 .profile-left{
   margin-right: 50px;
+  img{
+    border-radius: 50%;
+  }
 }
 
 .profile-right{
-  li{
-    font-size: 2.0rem;
-    font-weight: bold;
-  }
+  width: 100%;
+}
+
+.profile-right-upper{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #bbb;
+  font-size: 2.8rem;
+}
+
+.user-name{
+  font-weight: bold;
+}
+
+
+// プロフィール編集ページ
+.edit{
+  padding-top: 50px;
 }

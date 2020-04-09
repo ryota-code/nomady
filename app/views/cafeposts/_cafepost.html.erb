@@ -1,5 +1,5 @@
 <li class="post-item">
-  <div class="user">
+  <div class="user-name">
     <%= link_to cafepost.user.name, cafepost.user %>
   </div>
   <% if cafepost.image.url.nil? %>
@@ -11,7 +11,7 @@
   <h3 class="post-title"><%= cafepost.title%></h3>
   <p>紹介文</p>
   <p class="post-content"><%= cafepost.content %></p>
-  <% if cafepost.wifi == "1" %>
+  <% if cafepost.wifi %>
   <p>wifiあります</p>
   <% end %>
   <p class="post-postcode">〒<%= cafepost.postcode %></p>
