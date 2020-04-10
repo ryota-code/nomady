@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :destroy]
+  before_action :logged_in_user, only: [:edit, :update, :destroy, :followings, :followers]
   
   def index
     @users = User.all.page(params[:page]).per(10)
@@ -43,6 +43,16 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "ユーザーを削除しました"
     redirect_to users_url
+  end
+  
+  def followings
+    @user = User.find(params[:id])
+    @users = @user.followings.page(params[:page]).per(10)
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @user = @user.followers.page(params[:page]).per(10)
   end
   
   private

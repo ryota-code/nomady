@@ -9,6 +9,8 @@
 }
 
 .post-items{
+  width: 80%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -20,10 +22,7 @@
   border-radius: 10px;
   padding: 30px;
   border: 2px solid $main-color;
-  width: calc( 100% / 3 );
-  img{
-    width: 100%;
-  }
+  width: calc( 95% / 2 );
 }
 
 .form-wrapper{

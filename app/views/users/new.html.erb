@@ -1,6 +1,14 @@
 <div class="signup form-wrapper">
     <%= form_for(@user) do |f| %>
     <%= render 'shared/errors', object: f.object %>
+    <div id="img_field" onClick="$('#file').click()" >
+      <% if @user.image.url.present? %>
+        <%= image_tag(@user.image.url) %>
+      <% else %>
+        <i class="fas fa-image"></i><i class="fas fa-file-upload add"></i>
+      <% end %>
+    </div>
+    <%= f.file_field :image, id: "file" %>
     <dl>
       <dt>ユーザー名<span>*</span></dt>
       <dd><%= f.text_field :name %></dd>
@@ -20,10 +28,6 @@
     <dl>
       <dt>パスワード（確認）<span>*</span></dt>
       <dd><%= f.password_field :password_confirmation %></dd>
-    </dl>
-    <dl>
-      <dt>プロフィール画像</dt>
-      <dd><%= f.file_field :image, class: "register-profile-image" %></dd>
     </dl>
     <%= f.submit "登録する", class: "btn btn-register" %>
     <% end %>

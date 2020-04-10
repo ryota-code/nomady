@@ -8,7 +8,7 @@
             <% if user.image.url.nil? %>
             <%= image_tag 'noimage.png' %>
             <% else %>
-            <%= image_tag user.image.url %>
+            <%= image_tag user.image.profile_image.url %>
             <% end %>
           </div>
           <div class="user-right">

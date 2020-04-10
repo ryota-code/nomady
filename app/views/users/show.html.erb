@@ -5,13 +5,14 @@
       <% if @user.image.url.nil? %>
       <%= image_tag 'noimage.png' %>
       <% else %>
-      <%= image_tag @user.image.url %>
+      <%= image_tag @user.image.profile_image.url %>
       <% end %>
     </div>
     <div class="profile-right">
       <div class="profile-right-upper">
         <div class="user-name"><%= @user.name %></div>
-        <div>フォロー<%= @user.followings.count %>  フォロワー<%= @user.followers.count %></div>
+        <a href="<%= followings_user_path(@user)%>">フォロー<%= @user.followings.count %></a>
+        <a href="<%= followers_user_path(@user)%>">フォロワー<%= @user.followers.count %></a>
       </div>
       <div class="user-detail"><%= @user.detail %></div>
       <div>投稿数<%= @cafeposts.count %></div>

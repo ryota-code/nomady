@@ -1,11 +1,15 @@
 <div class="form-wrapper">
   <%= form_for(@cafepost) do |f| %>
     <%= render 'shared/errors', object: f.object %>
-    <div>
-      <dl>
-        <dt>画像</dt>
-        <dd><%= f.file_field :image %></dd>
-      </dl>
+  
+      <div id="img_field" onClick="$('#file').click()" >
+        <% if @cafepost.image.url.present? %>
+          <%= image_tag(@cafepost.image.url) %>
+        <% else %>
+          <i class="fas fa-image"></i><i class="fas fa-file-upload add"></i>
+        <% end %>
+      </div>
+      <%= f.file_field :image, id: "file" %>
       <dl>
         <dt>店名</dt>
         <dd><%= f.text_field :title %></dd>
@@ -42,7 +46,6 @@
         <dt>建物名</dt>
         <dd><%= f.text_field :address_building %></dd>
       </dl>
-    </div>
     <%= f.submit "投稿", class: 'btn btn-post' %>
   <% end %>
 </div>

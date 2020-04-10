@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   
   #投稿
-  # get '/cafepost' => "cafeposts#index"
   get '/post' => 'cafeposts#new'
+  get 'cafeposts/:id' => 'cafeposts#show'
   resources :cafeposts
   
   # リレーションシップ

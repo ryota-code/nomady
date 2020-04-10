@@ -10,6 +10,7 @@ class CafepostsController < ApplicationController
   end
   
   def show
+    @cafepost = Cafepost.find(params[:id])
   end
   
   def edit

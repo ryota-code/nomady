@@ -1,11 +1,12 @@
 <li class="post-item">
+  <%= link_to '詳細', '/cafeposts/#{cafepost.id}' %>
   <div class="user-name">
     <%= link_to cafepost.user.name, cafepost.user %>
   </div>
   <% if cafepost.image.url.nil? %>
-  <%= image_tag "noimage.png", alt: "thumbnail", class: "post-thumbnail", width: "200", height: "200" %>
+  <%= image_tag "noimage.png", alt: "thumbnail" %>
   <% else %>
-  <%= image_tag cafepost.image.url, alt: "thumbnail", class: "post-thumbnail" %>
+  <%= image_tag cafepost.image.thumb.url, alt: "thumbnail"%>
   <% end %>
   <h3>店名</h3>
   <h3 class="post-title"><%= cafepost.title%></h3>
@@ -20,12 +21,12 @@
   <p class="post-postcode">〒<%= cafepost.postcode %></p>
   <p class="address"><%= cafepost.prefecture_code %><%= cafepost.address_city %><%= cafepost.address_street %><%= cafepost.address_building %></p>
   <% unless cafepost.user.image.nil? %>
-  <%= image_tag cafepost.user.image.url %>
+  <%= image_tag cafepost.user.image.profile_image.url %>
   <% end %>
   <span class="timestamp">
      <%= time_ago_in_words(cafepost.created_at) %> 前に投稿されました
   </span>
   <% if good_user?(cafepost.user) %>
-  <%= link_to "delete", cafepost, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  <%= link_to "削除", cafepost, method: :delete, data: { confirm: "本当に削除しますか？" } %>
   <% end %>
 </li>
