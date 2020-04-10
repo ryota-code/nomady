@@ -14,6 +14,9 @@
   <% if cafepost.wifi %>
   <p>wifiあります</p>
   <% end %>
+  <% if cafepost.power %>
+  <p>コンセントあります</p>
+  <% end %>
   <p class="post-postcode">〒<%= cafepost.postcode %></p>
   <p class="address"><%= cafepost.prefecture_code %><%= cafepost.address_city %><%= cafepost.address_street %><%= cafepost.address_building %></p>
   <% unless cafepost.user.image.nil? %>

@@ -1,3 +1,6 @@
+// 共通変数読み込み
+@import './variables';
+
 .head{
   margin-top: 50px;
   text-align: center;
@@ -14,8 +17,9 @@
 .post-item{
   box-sizing: border-box;
   margin-bottom: 20px;
-  padding: 10px;
-  border: 2px solid skyblue;
+  border-radius: 10px;
+  padding: 30px;
+  border: 2px solid $main-color;
   width: calc( 100% / 3 );
   img{
     width: 100%;
