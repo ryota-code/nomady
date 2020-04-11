@@ -28,3 +28,34 @@
 .form-wrapper{
   padding-top: 50px;
 }
+
+// 投稿詳細ページ
+.post-wrap{
+  width: 70%;
+  margin: auto;
+}
+
+.post-image{
+  text-align: center;
+}
+
+.post-detail{
+  display: flex;
+}
+
+.post-detail-left{
+  width: 40%;
+  img{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+  }
+}
+
+.post-user-detail{
+  display: flex;
+  p{
+    line-height: 75px;
+    margin-left: 20px;
+  }
+}
