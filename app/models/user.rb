@@ -12,6 +12,10 @@ class User < ApplicationRecord
     validates :password, presence: true, length: { minimum: 4 }
     mount_uploader :image, ImageUploader
     
+    # お気に入り
+    has_many :favorites
+    has_many :cafeposts, through: :favorites
+    
     def follow(other_user)
       unless self == other_user
         self.relationships.find_or_create_by(follow_id: other_user.id)

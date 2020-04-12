@@ -1,3 +1,4 @@
+
 User.create!(name: "加藤 浩輔",
             email: "example@nomady.com",
             password: "admin1234",
@@ -6,7 +7,7 @@ User.create!(name: "加藤 浩輔",
 
 
 20.times do |n|
-  name = Faker::DragonBall.character
+  name = Faker::Name.name
   email = "example-#{n+1}@nomady.com"
   password = "admin1234"
   detail = "4年生/文学部/TOEIC800点/留学経験あり"

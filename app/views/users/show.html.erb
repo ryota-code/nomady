@@ -1,5 +1,7 @@
 <div class="container">
+  <% if logged_in? %>
   <%= render 'relationships/follow_btn', user: @user %>
+  <% end %>
   <div class="profile-wrapper">
     <div class="profile-left">
       <% if @user.image.url.nil? %>
