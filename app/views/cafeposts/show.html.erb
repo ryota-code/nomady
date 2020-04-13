@@ -1,0 +1,36 @@
+<div class="post-wrap">
+  <div class="post-image">
+    <% if @cafepost.image.url.nil? %>
+    <%= image_tag 'noimage.png' %>
+    <% else %>
+    <%= image_tag @cafepost.image.url %>
+    <% end %>
+  </div>
+  <div class="post-detail">
+    <div class="post-detail-left">
+      <div class="post-user-detail">
+        <%= image_tag @cafepost.user.image.thumb23.url %>
+        <p><%= link_to @cafepost.user.name, @cafepost.user %></p>
+      </div>
+      <p class="post-time">
+        <%= @cafepost.updated_at.strftime("%Y/%m/%d") %>
+      </p>
+      <p class="post-postcode">〒<%= @cafepost.postcode %></p>
+      <p class="post-address">
+        <%= @cafepost.prefecture_code %>
+        <%= @cafepost.address_city %>
+        <%= @cafepost.address_street %>
+        <%= @cafepost.address_building %>
+      </p>
+    </div>
+    <div class="post-detail-right">
+      <p class="post-content"><%= @cafepost.content %></p>
+      <% if @cafepost.wifi %>
+      <p>wifiあります</p>
+      <% end %>
+      <% if @cafepost.power %>
+      <p>コンセントあります</p>
+      <% end %>
+    </div>
+  </div>
+</div>

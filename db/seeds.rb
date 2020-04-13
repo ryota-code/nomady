@@ -1,6 +1,7 @@
 
 User.create!(name: "加藤 浩輔",
             email: "example@nomady.com",
+            detail: "4年生/文学部/TOEIC800点/留学経験あり",
             password: "admin1234",
             password_confirmation: "admin1234",
             admin: true)

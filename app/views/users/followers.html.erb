@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="user-wrapper">
+    <h2>フォロワー</h2>
+    <ul class="users">
+      <% if @users.nil? %>
+      <p>まだフォロワーはいません。</p>
+      <% else %>
+        <% @users.each do |user| %>
+          <li class="user">
+            <div class="user-left">
+              <% if user.image.url.nil? %>
+              <%= image_tag 'noimage.png' %>
+              <% else %>
+              <%= image_tag user.image.url %>
+              <% end %>
+            </div>
+            <div class="user-right">
+              <h3><%= link_to user.name, user %></h3>
+              <p><%= user.detail %></p>
+            </div>
+          </li>
+        <% end %>
+    </ul>
+      <%= paginate @users %>
+      <% end %>
+  </div>
+</div>
