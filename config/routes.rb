@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   #投稿
   get '/post' => 'cafeposts#new'
   get 'cafeposts/:id' => 'cafeposts#show'
-  resources :cafeposts do
-    post 'add' => 'favorites#create'
-    delete '/add' => 'favorites#destroy'
-  end
+  resources :cafeposts
+  
+  #お気に入り
+  resources :favorites, only: [:create, :destroy]
   
   # リレーションシップ
   resources :relationships, only: [:create, :destroy]

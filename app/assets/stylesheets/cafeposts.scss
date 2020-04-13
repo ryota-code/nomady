@@ -59,3 +59,17 @@
     margin-left: 20px;
   }
 }
+
+// いいね
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url("<%= asset_path('web_heart_animation.png') %>") no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+}
+.heart:hover {
+  background-position: -2800px 0;
+  -webkit-transition: background 1s steps(28);
+  transition: background 1s steps(28);
+}

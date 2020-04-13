@@ -13,8 +13,7 @@ class User < ApplicationRecord
     mount_uploader :image, ImageUploader
     
     # お気に入り
-    has_many :favorites
-    has_many :cafeposts, through: :favorites
+    has_many :favorites, dependent: :destroy
     
     def follow(other_user)
       unless self == other_user
