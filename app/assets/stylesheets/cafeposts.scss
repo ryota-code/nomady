@@ -64,9 +64,11 @@
 .heart {
   width: 100px;
   height: 100px;
-  background: url("<%= asset_path('web_heart_animation.png') %>") no-repeat;
+  background-image: image-url('web_heart_animation.png') ;
   background-position: 0 0;
   cursor: pointer;
+  background-color: $sub-color;
+  border: none;
 }
 .heart:hover {
   background-position: -2800px 0;

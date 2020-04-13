@@ -2,13 +2,13 @@
     <span class="favorite">
     <% if cafepost.iine?(current_user) %>
       <%= form_for(cafepost.favorites.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-        <%= button_tag(class: "btn btn-default btn-xs") do %>
+        <%= button_tag(class: "heart") %>
         <% end %>
       <% end %>
     <% else %>
       <%= form_for(cafepost.favorites.build, remote: true) do |f| %>
         <div><%= hidden_field_tag :cafepost_id, cafepost.id %></div>
-        <%= button_tag(class: "heart") do %>
+        <%= button_tag(class: "heart") %>
         <% end %>
       <% end %>
     <% end %>
