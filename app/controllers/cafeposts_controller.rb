@@ -18,6 +18,13 @@ class CafepostsController < ApplicationController
   end
   
   def update
+    @cafepost = Cafepost.find(params[:id])
+    if @cafepost.update_attributes(cafepost_params)
+      flash[:success] = "投稿が更新されました"
+      redirect_to @cafepost
+    else
+      render 'edit'
+    end
   end
   
   def create

@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   #お気に入り
   resources :favorites, only: [:create, :destroy]
   
-  # リレーションシップ
+  # follow follower
   resources :relationships, only: [:create, :destroy]
 end
