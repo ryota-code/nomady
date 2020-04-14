@@ -11,6 +11,8 @@ class CafepostsController < ApplicationController
   
   def show
     @cafepost = Cafepost.find(params[:id])
+    @comments = @cafepost.comments
+    @comment = Comment.new
   end
   
   def edit
@@ -30,7 +32,7 @@ class CafepostsController < ApplicationController
   def create
     @cafepost = current_user.cafeposts.build(cafepost_params)
     if @cafepost.save
-      flash[:success] = '投稿しました'
+      flash[:success] = 'カフェを追加しました'
       redirect_to cafeposts_path
     else
       render 'new'

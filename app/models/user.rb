@@ -15,6 +15,9 @@ class User < ApplicationRecord
     # お気に入り
     has_many :favorites, dependent: :destroy
     
+    # コメント
+    has_many :comments, dependent: :destroy
+    
     def follow(other_user)
       unless self == other_user
         self.relationships.find_or_create_by(follow_id: other_user.id)

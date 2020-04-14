@@ -33,4 +33,20 @@
       <% end %>
     </div>
   </div>
+  
+  <h2>コメント一覧</h2>
+  <% @comments.each do |c| %>
+    <div>
+      <a href="/users/<%= @cafepost.user.id %>"><%= c.user.email %></a>
+      <%= c.content %>
+      <hr>
+    </div>
+  <% end %>
+  
+  <%= form_for [@cafepost, @comment] do |f| %>
+    <%= f.text_field :content %>
+    <%= f.hidden_field :cafepost_id, value: @cafepost.id %>
+    <br>
+    <%= f.submit 'コメントする' %>
+  <% end %>
 </div>

@@ -10,6 +10,9 @@ class Cafepost < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :iine_users, through: :favorites, source: :user
   
+  # コメント
+  has_many :comments, dependent: :destroy
+  
   
   # 住所自動入力
   include JpPrefecture
