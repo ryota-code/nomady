@@ -31,5 +31,6 @@
   </span>
   <% if good_user?(cafepost.user) %>
   <%= link_to "削除", cafepost, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  <%= link_to "編集", edit_cafepost_path(cafepost) %>
   <% end %>
 </li>

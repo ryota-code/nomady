@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   
   #投稿
   get '/post' => 'cafeposts#new'
-  get 'cafeposts/:id' => 'cafeposts#show'
   resources :cafeposts
   
   #お気に入り

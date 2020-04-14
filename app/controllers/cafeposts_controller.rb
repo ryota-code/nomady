@@ -14,6 +14,7 @@ class CafepostsController < ApplicationController
   end
   
   def edit
+    @cafepost = Cafepost.find(params[:id])
   end
   
   def update
