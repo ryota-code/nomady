@@ -37,7 +37,7 @@
   <h2>コメント一覧</h2>
   <% @comments.each do |c| %>
     <div>
-      <a href="/users/<%= @cafepost.user.id %>"><%= c.user.email %></a>
+      <%= link_to c.user.name, user_path(c.user) %>
       <%= c.content %>
       <hr>
     </div>

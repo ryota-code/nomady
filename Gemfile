@@ -40,6 +40,9 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'jp_prefecture'
 gem 'jquery-rails' 
 
+# カウント機能
+gem 'counter_culture', '~> 1.8'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

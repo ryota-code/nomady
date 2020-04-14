@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_005656) do
+ActiveRecord::Schema.define(version: 2020_04_14_050425) do
 
   create_table "cafeposts", force: :cascade do |t|
     t.text "title"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_005656) do
     t.string "address_building"
     t.boolean "wifi"
     t.boolean "power"
+    t.integer "favorites_count", default: 0, null: false
     t.index ["user_id"], name: "index_cafeposts_on_user_id"
   end
 
@@ -46,7 +47,6 @@ ActiveRecord::Schema.define(version: 2020_04_14_005656) do
     t.datetime "updated_at", null: false
     t.index ["cafepost_id"], name: "index_favorites_on_cafepost_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
-    t.index [nil, nil], name: "index_favorites_on_user_and_cafepost", unique: true
     t.index [nil], name: "index_favorites_on_cafepost"
     t.index [nil], name: "index_favorites_on_user"
   end
