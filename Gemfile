@@ -43,6 +43,9 @@ gem 'jquery-rails'
 # カウント機能
 gem 'counter_culture', '~> 1.8'
 
+# GoogleMap
+gem 'geocoder'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

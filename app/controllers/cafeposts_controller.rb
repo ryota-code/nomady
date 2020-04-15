@@ -43,6 +43,17 @@ class CafepostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
   
+  def gmap
+  end
+  
+  def map
+    results = Geocoder.search(params[:address])
+    @latlng = results.first.coordinates
+    respond_to do |format|
+    format.js
+    end
+  end
+  
   private
   
     def cafepost_params
