@@ -16,12 +16,13 @@ Rails.application.routes.draw do
   
   #投稿
   get '/post' => 'cafeposts#new'
-  get 'cafeposts/:id' => 'cafeposts#show'
-  resources :cafeposts
+  resources :cafeposts do
+    resources :comments, only: [:create, :edit, :update]
+  end
   
   #お気に入り
   resources :favorites, only: [:create, :destroy]
   
-  # リレーションシップ
+  # follow follower
   resources :relationships, only: [:create, :destroy]
 end

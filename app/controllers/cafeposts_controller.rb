@@ -1,8 +1,9 @@
 class CafepostsController < ApplicationController
   before_action :logged_in_user, only: [:new, :edit, :update, :create, :destroy]
-  before_action :good_user, only:[:destroy]
+  before_action :good_user, only: [:destroy]
+  before_action :set_cafepost, only: [:show, :edit, :update]
   def index
-    @post_items = Cafepost.all.page(params[:page]).per(10)
+    @cafeposts = Cafepost.all.page(params[:page]).per(10)
   end
   
   def new
@@ -10,19 +11,26 @@ class CafepostsController < ApplicationController
   end
   
   def show
-    @cafepost = Cafepost.find(params[:id])
+    @comments = @cafepost.comments
+    @comment = Comment.new
   end
   
   def edit
   end
   
   def update
+    if @cafepost.update_attributes(cafepost_params)
+      flash[:success] = "投稿が更新されました"
+      redirect_to @cafepost
+    else
+      render 'edit'
+    end
   end
   
   def create
     @cafepost = current_user.cafeposts.build(cafepost_params)
     if @cafepost.save
-      flash[:success] = '投稿しました'
+      flash[:success] = 'カフェを追加しました'
       redirect_to cafeposts_path
     else
       render 'new'
@@ -44,5 +52,9 @@ class CafepostsController < ApplicationController
     def good_user
       @cafepost = current_user.cafeposts.find_by(id: params[:id])
       redirect_to root_url if @cafepost.nil?
+    end
+    
+    def set_cafepost
+      @cafepost = Cafepost.find(params[:id])
     end
 end

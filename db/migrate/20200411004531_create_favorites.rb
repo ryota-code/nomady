@@ -7,7 +7,6 @@ class CreateFavorites < ActiveRecord::Migration[5.2]
       
       t.index :user
       t.index :cafepost
-      t.index [:user, :cafepost], unique: true
     end
   end
 end
