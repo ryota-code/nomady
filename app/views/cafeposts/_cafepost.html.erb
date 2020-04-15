@@ -25,6 +25,7 @@
   <% end %>
   
   <%= render "favorites/favorite_form", cafepost: cafepost %>
+  <%= cafepost.comments.count %>
 
   <span class="timestamp">
      <%= time_ago_in_words(cafepost.created_at) %> 前に投稿されました

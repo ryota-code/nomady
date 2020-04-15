@@ -35,6 +35,7 @@
   </div>
   
   <h2>コメント一覧</h2>
+  <div>コメント<%= @comments.count %></div>
   <% @comments.each do |c| %>
     <div>
       <%= link_to c.user.name, user_path(c.user) %>
