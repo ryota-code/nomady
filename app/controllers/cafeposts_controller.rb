@@ -57,7 +57,7 @@ class CafepostsController < ApplicationController
   private
   
     def cafepost_params
-      params.require(:cafepost).permit(:wifi, :power, :image, :title, :content, :postcode, :prefecture_code, :address_city, :address_street, :address_building)
+      params.require(:cafepost).permit(:wifi, :power, :image, :title, :content, :postcode, :address_all)
     end
     
     def good_user

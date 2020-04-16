@@ -19,7 +19,7 @@
   <p>コンセントあります</p>
   <% end %>
   <p class="post-postcode">〒<%= cafepost.postcode %></p>
-  <p class="address"><%= cafepost.prefecture_code %><%= cafepost.address_city %><%= cafepost.address_street %><%= cafepost.address_building %></p>
+  <p class="address"><%= cafepost.address_all %></p>
   <% unless cafepost.user.image.nil? %>
   <%= image_tag cafepost.user.image.profile_image.url %>
   <% end %>
