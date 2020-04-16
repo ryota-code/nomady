@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   
   #投稿
   get '/post' => 'cafeposts#new'
-  get '/gmap' => 'cafeposts#gmap'
-  get '/map_request' => 'cafeposts#map', as: 'map_request'
   resources :cafeposts do
     resources :comments, only: [:create, :edit, :update]
   end

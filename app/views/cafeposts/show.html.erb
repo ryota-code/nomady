@@ -47,6 +47,7 @@
     <br>
     <%= f.submit 'コメントする' %>
   <% end %>
+  
 </div>
 
 
@@ -77,14 +78,17 @@
   }
 </script>
 
-
-<script async defer
-              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyA37ickFsSITV4eOEpCsmecAsONRcABdUg&callback=initMap">
+    <script async defer
+              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>
+
+
+
 
 <style type="text/css">
   #map { height: 200px;
          width: 70%;}
 </style>
 
-<div id="map"></div>
+
+  <div id="map"></div>
