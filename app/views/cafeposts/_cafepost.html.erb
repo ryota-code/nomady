@@ -13,10 +13,10 @@
   <p>紹介文</p>
   <p class="post-content"><%= cafepost.content %></p>
   <% if cafepost.wifi %>
-  <p>wifiあります</p>
+  <p><%= icon('fas', 'wifi') %></p>
   <% end %>
   <% if cafepost.power %>
-  <p>コンセントあります</p>
+    <p><%= icon('fas', 'plug') %></p>
   <% end %>
   <p class="post-postcode">〒<%= cafepost.postcode %></p>
   <p class="address"><%= cafepost.address_all %></p>
