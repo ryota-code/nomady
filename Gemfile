@@ -45,9 +45,12 @@ gem 'counter_culture', '~> 1.8'
 
 # GoogleMap
 gem 'geocoder'
+gem 'gmaps4rails'
 
 #GoogleMapAPI保護
 gem "dotenv-rails"
+
+
 
 group :development, :test do
   gem 'sqlite3'
