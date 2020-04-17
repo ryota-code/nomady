@@ -4,7 +4,7 @@ Geocoder.configure(
     lookup: :google,
 
     # to use an API key:
-    api_key: "ENV['GOOGLE_MAP_API_KEY']",
+    api_key: ENV['GOOGLE_MAP_API_KEY'],
 
     # geocoding service request timeout, in seconds (default 3):
     timeout: 5,

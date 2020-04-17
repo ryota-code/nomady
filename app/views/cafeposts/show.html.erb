@@ -61,15 +61,15 @@
     var transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);
 
-    var contentString = '住所：<%= @cafepost.address_all %>';
+    var contentHTML = '<p><%= @cafepost.title%></p><p>場所：<%= @cafepost.address_all %></p>';
     var infowindow = new google.maps.InfoWindow({
-      content: contentString
+      content: contentHTML
     });
 
     var marker = new google.maps.Marker({
                   position:test,
                   map: map,
-                  title: contentString
+                  title: contentHTML
                  });
 
      marker.addListener('click', function() {
