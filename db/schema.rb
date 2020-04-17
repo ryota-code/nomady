@@ -20,10 +20,9 @@ ActiveRecord::Schema.define(version: 2020_04_14_050425) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.integer "postcode"
-    t.integer "prefecture_code"
-    t.string "address_city"
-    t.string "address_street"
-    t.string "address_building"
+    t.string "address_all"
+    t.float "latitude"
+    t.float "longitude"
     t.boolean "wifi"
     t.boolean "power"
     t.integer "favorites_count", default: 0, null: false

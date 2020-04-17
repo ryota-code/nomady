@@ -21,7 +21,7 @@ class CafepostsController < ApplicationController
   def update
     if @cafepost.update_attributes(cafepost_params)
       flash[:success] = "投稿が更新されました"
-      redirect_to @cafepost
+      redirect_to cafeposts_path
     else
       render 'edit'
     end
@@ -43,10 +43,19 @@ class CafepostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
   
+  def gmap
+    @places = Cafepost.all
+    @hash = Gmaps4rails.build_markers(@places) do |place, marker|
+      marker.lat place.latitude
+      marker.lng place.longitude
+      marker.infowindow place.title
+   end
+  end
+  
   private
   
     def cafepost_params
-      params.require(:cafepost).permit(:wifi, :power, :image, :title, :content, :postcode, :prefecture_code, :address_city, :address_street, :address_building)
+      params.require(:cafepost).permit(:wifi, :power, :image, :title, :content, :postcode, :address_all)
     end
     
     def good_user

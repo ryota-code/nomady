@@ -17,10 +17,7 @@
       </p>
       <p class="post-postcode">〒<%= @cafepost.postcode %></p>
       <p class="post-address">
-        <%= @cafepost.prefecture_code %>
-        <%= @cafepost.address_city %>
-        <%= @cafepost.address_street %>
-        <%= @cafepost.address_building %>
+        <%= @cafepost.address_all %>
       </p>
     </div>
     <div class="post-detail-right">
@@ -50,4 +47,46 @@
     <br>
     <%= f.submit 'コメントする' %>
   <% end %>
+  
 </div>
+
+
+<script type="text/javascript">
+  function initMap() {
+    var test = {lat: <%= @cafepost.latitude %>, lng: <%= @cafepost.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15, 
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentHTML = '<p><%= @cafepost.title%></p><p>場所：<%= @cafepost.address_all %></p>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentHTML
+    });
+
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentHTML
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDms08Vg-4t136yIMuX6XJROiWOfKHmCBM&callback=initMap"></script>
+
+
+
+
+<style type="text/css">
+  #map { height: 200px;
+         width: 70%;}
+</style>
+
+
+  <div id="map"></div>

@@ -10,9 +10,12 @@ class Cafepost < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :iine_users, through: :favorites, source: :user
   
+  #Google Map
+  geocoded_by :address_all
+  after_validation :geocode, if: :address_all_changed?
+  
   # コメント
   has_many :comments, dependent: :destroy
-  
   
   # 住所自動入力
   include JpPrefecture
@@ -25,7 +28,7 @@ class Cafepost < ApplicationRecord
   def prefecture_name=(prefecture_name)
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
-    
+  
   # マイクロポストをいいねする
   def iine(user)
     favorites.create(user_id: user.id)
