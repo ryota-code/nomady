@@ -1,0 +1,27 @@
+@import "./variables";
+
+.tabnav{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.tabnav li{
+   display: inline;
+   margin: 0 30px 0 30px;
+}
+.tabnav li a{
+    display: inline-block;
+    background: #fff;
+    color: $main-color;
+    padding: 10px 100px;
+    border-radius: 10px;
+    border: 1px solid $main-color;
+    text-decoration: none;
+}
+.tabnav li a:hover,
+.tabnav li a.active{
+    
+    background: $main-color;
+    color: #fff;
+}

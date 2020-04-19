@@ -1,0 +1,37 @@
+<li class="post-item" id="cafepost-<%= cafepost.id %>" data-cafepost-id="<%= cafepost.id %>">
+  <%= link_to '詳細', cafepost %>
+  <div class="user-name">
+    <%= link_to cafepost.user.name, cafepost.user %>
+  </div>
+  <% if cafepost.image.url.nil? %>
+  <%= image_tag "noimage.png", alt: "thumbnail" %>
+  <% else %>
+  <%= image_tag cafepost.image.thumb.url, alt: "thumbnail"%>
+  <% end %>
+  <h3>店名</h3>
+  <h3 class="post-title"><%= cafepost.title%></h3>
+  <p>紹介文</p>
+  <p class="post-content"><%= cafepost.content %></p>
+  <% if cafepost.wifi %>
+  <p><%= icon('fas', 'wifi') %></p>
+  <% end %>
+  <% if cafepost.power %>
+    <p><%= icon('fas', 'plug') %></p>
+  <% end %>
+  <p class="post-postcode">〒<%= cafepost.postcode %></p>
+  <p class="address"><%= cafepost.address_all %></p>
+  <% unless cafepost.user.image.nil? %>
+  <%= image_tag cafepost.user.image.profile_image.url %>
+  <% end %>
+  
+  <%= render "favorites/favorite_form", cafepost: cafepost %>
+  <%= cafepost.comments.count %>
+
+  <span class="timestamp">
+     <%= time_ago_in_words(cafepost.created_at) %> 前に投稿されました
+  </span>
+  <% if good_user?(cafepost.user) %>
+  <%= link_to "削除", cafepost, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  <%= link_to "編集", edit_cafepost_path(cafepost) %>
+  <% end %>
+</li>
