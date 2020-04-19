@@ -17,6 +17,12 @@ class Cafepost < ApplicationRecord
   # コメント
   has_many :comments, dependent: :destroy
   
+  # 検索
+  def self.search(search)
+    return Cafepost.all unless search
+    Cafepost.where(['address_all LIKE ?', "%#{search}%"])
+  end
+  
   # 住所自動入力
   include JpPrefecture
   jp_prefecture :prefecture_code

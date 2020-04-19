@@ -3,7 +3,7 @@ class CafepostsController < ApplicationController
   before_action :good_user, only: [:destroy]
   before_action :set_cafepost, only: [:show, :edit, :update]
   def index
-    @cafeposts = Cafepost.all.page(params[:page]).per(10)
+    @cafeposts = Cafepost.search(params[:search]).page(params[:page]).per(10)
   end
   
   def new
@@ -51,6 +51,7 @@ class CafepostsController < ApplicationController
       marker.infowindow place.title
    end
   end
+  
   
   private
   

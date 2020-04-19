@@ -1,6 +1,12 @@
 
 <div class="container">
   <h1 class="head">ノマドカフェを探す</h1>
+  <p>検索</p>
+  <%= form_tag(cafeposts_path,:method => 'get') do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag 'Search', :name => nil %>
+  <% end %>
+  
     <ul class="post-items">
         <%= render @cafeposts %>
     </ul>
