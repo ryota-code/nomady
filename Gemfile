@@ -50,6 +50,8 @@ gem 'gmaps4rails'
 #GoogleMapAPI保護
 gem "dotenv-rails"
 
+#タグ付け機能追加
+gem 'acts-as-taggable-on', '~> 6.0' 
 
 
 
