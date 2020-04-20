@@ -50,14 +50,14 @@ class CafepostsController < ApplicationController
       marker.lat place.latitude
       marker.lng place.longitude
       marker.infowindow place.title
-   end
+    end
   end
   
   
   private
   
     def cafepost_params
-      params.require(:cafepost).permit(:wifi, :power, :image, :title, :content, :postcode, :address_all)
+      params.require(:cafepost).permit(:wifi, :power, :image, :title, :content, :postcode, :address_all, :tag_list)
     end
     
     def good_user
@@ -65,6 +65,7 @@ class CafepostsController < ApplicationController
       redirect_to root_url if @cafepost.nil?
     end
     
+     #リファクタリング
     def set_cafepost
       @cafepost = Cafepost.find(params[:id])
     end

@@ -20,6 +20,11 @@
       </dl>
       
       <dl>
+        <dt>タグ</dt>
+        <dd><%= f.text_field :tag_list, value: @cafepost.tag_list.join(',') %></dd>
+      </dl>
+      
+      <dl>
         <dd>WiFi <%= f.check_box :wifi, :as => :boolean %></dd>
         <dd>コンセント <%= f.check_box :power, :as => :boolean %></dd>
       </dl>

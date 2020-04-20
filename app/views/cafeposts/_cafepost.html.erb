@@ -26,7 +26,7 @@
   
   <%= render "favorites/favorite_form", cafepost: cafepost %>
   <%= cafepost.comments.count %>
-
+  <%= render "tag_list", tag_list: cafepost.tag_list %>
   <span class="timestamp">
      <%= time_ago_in_words(cafepost.created_at) %> 前に投稿されました
   </span>

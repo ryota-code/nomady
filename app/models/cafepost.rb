@@ -23,6 +23,9 @@ class Cafepost < ApplicationRecord
     Cafepost.where(['address_all LIKE ?', "%#{search}%"])
   end
   
+  #タグ付
+  acts_as_taggable
+  
   # 住所自動入力
   include JpPrefecture
   jp_prefecture :prefecture_code
