@@ -1,16 +1,16 @@
 <style type="text/css">
-  #map2 { height: 500px;
-         width: 70%;}
+  #map2 { 
+    margin: 0 auto;
+    height: 660px;
+    width: 100%;}
 </style>
-<div id="map2"></div>
-
-<script src="//maps.google.com/maps/api/js?key=AIzaSyDms08Vg-4t136yIMuX6XJROiWOfKHmCBM"></script>
-<script>
+<script type="text/javascript">
+    
   handler = Gmaps.build('Google');
   handler.buildMap({
     provider: {},
     internal: {id: 'map2'}},
-    function(){
+    function() {
     markers = handler.addMarkers(<%= raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
@@ -18,3 +18,6 @@
     handler.getMap().setZoom(10);
   });
 </script>
+<div id="map2"></div>
+
+ <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDms08Vg-4t136yIMuX6XJROiWOfKHmCBM&" async defer></script>-->

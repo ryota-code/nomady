@@ -7,10 +7,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <%# google map %>
     <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-    <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDms08Vg-4t136yIMuX6XJROiWOfKHmCBM&callback=initMap" async defer></script>
 
   </head>
   <header>
@@ -25,6 +24,7 @@
           <li class="header-nav-item"><%= link_to "プロフィール", current_user %></li>
           <li class="header-nav-item"><%= link_to "プロフィール設定", edit_user_path(current_user) %></li>
           <li class="header-nav-item"><%= link_to "ユーザー一覧", users_path %></li>
+          <li class="header-nav-item"><%= link_to "マップを開く", "/cafeposts/gmap" %></li>
           <li class="header-nav-item">
             <%= link_to post_path do %>
             投稿  <%= icon('fas', 'edit') %>
@@ -34,6 +34,7 @@
           <li class="header-nav-item"><%= link_to "ログイン", login_path %></li>
           <li class="header-nav-item"><%= link_to "ユーザー登録", signup_path %></li>
           <li class="header-nav-item"><%= link_to "ユーザー一覧", users_path %></li>
+          <li class="header-nav-item"><%= link_to "マップを開く", "/cafeposts/gmap" %></li>
           <% end %>
 
         </ul>
