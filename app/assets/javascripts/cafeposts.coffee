@@ -1,4 +1,5 @@
 $(document).on 'turbolinks:load', ->
+  # 住所自動入力
   $("#cafepost_postcode").jpostal({
     postcode : [ "#cafepost_postcode" ],
     address  : {
@@ -6,6 +7,7 @@ $(document).on 'turbolinks:load', ->
                 }
   })
   
+  # タブの切替
   $('.tabcontent > div').hide()
   $('.tabnav a').click(->
     $('.tabcontent > div').hide().filter(@hash).fadeIn()
@@ -13,3 +15,5 @@ $(document).on 'turbolinks:load', ->
     $(this).addClass 'active'
     false
   ).filter(':eq(0)').click()
+  
+  
