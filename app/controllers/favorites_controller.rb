@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
       @cafepost.iine(current_user)
       @cafepost.reload
       respond_to do |format|
-        format.html { redirect_to request.referrer || root_url }
+        format.html { redirect_to request.referer || root_url }
         format.js
       end
     end
@@ -18,7 +18,7 @@ class FavoritesController < ApplicationController
       @cafepost.uniine(current_user)
       @cafepost.reload
       respond_to do |format|
-        format.html { redirect_to request.referrer || root_url }
+        format.html { redirect_to request.referer || root_url }
         format.js
       end
     end

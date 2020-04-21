@@ -10,16 +10,14 @@ class CommentsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
-  
-  def edit
-  end
-  
-  def update
-  end
 
-    private
-    
-    def comment_params
-      params.require(:comment).permit(:content, :cafepost_id)
-    end
+  def edit; end
+
+  def update; end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:content, :cafepost_id)
+  end
 end
