@@ -28,3 +28,11 @@ users = User.order(:created_at).take(6)
   power = "1"
   users.each { |user| user.cafeposts.create!(title: title, content: content, wifi: wifi, power: power) }
 end
+
+
+array = %w(aaa bbb ccc ddd eee fff ggg)
+array.each{ |tag|
+  tag_list = ActsAsTaggableOn::Tag.new
+  tag_list.name = tag
+  tag_list.save
+}

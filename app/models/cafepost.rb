@@ -23,7 +23,7 @@ class Cafepost < ApplicationRecord
     Cafepost.where(['address_all LIKE ?', "%#{search}%"])
   end
   
-  #タグ付
+  #タグ付け
   acts_as_taggable
   
   # 住所自動入力
