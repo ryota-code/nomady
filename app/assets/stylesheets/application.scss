@@ -16,8 +16,11 @@
  */
  
 // Bootstrap読み込み
-// @import "bootstrap-sprockets";
-// @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// taginput
+@import 'tagsinput';
 
 // Fontawesome読み込み
 @import 'font-awesome-sprockets';

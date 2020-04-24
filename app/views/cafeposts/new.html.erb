@@ -21,7 +21,7 @@
       
       <dl>
         <dt>タグ</dt>
-        <dd><%= f.text_field :tag_list, value: @cafepost.tag_list.join(',') %></dd>
+        <dd><%= f.text_field :tag_list, value: @cafepost.tag_list.join(','), data: {role: "tagsinput"} %></dd>
       </dl>
       
       <dl>
@@ -38,6 +38,6 @@
         <dt>住所</dt>
         <dd><%= f.text_field :address_all %></dd>
       </dl>
-    <%= f.submit "投稿", class: 'btn btn-post' %>
+    <%= f.button "投稿", type: 'button', onclick: 'submit();', class: 'btn btn-post' %>
   <% end %>
 </div>
