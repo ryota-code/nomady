@@ -1,3 +1,4 @@
+
 (function ($) {
   "use strict";
 
@@ -172,6 +173,7 @@
 
       if (item) {
         var beforeItemRemoveEvent = $.Event('beforeItemRemove', { item: item, cancel: false, options: options });
+
         self.$element.trigger(beforeItemRemoveEvent);
         if (beforeItemRemoveEvent.cancel)
           return;

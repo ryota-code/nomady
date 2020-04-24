@@ -85,13 +85,18 @@
 
 // 投稿詳細ページ
 .post-wrap{
-  width: 70%;
+  width: 80%;
   margin: auto;
 }
 
 .post-image{
   text-align: center;
-}
+  img{
+    width: 600px;
+    height: 400px;
+  }
+    
+  }
 
 .post-detail{
   display: flex;
@@ -133,4 +138,5 @@
 // いいねfontawsome
 .favored{
   color: red;
+  background-color: $sub-color;
 }

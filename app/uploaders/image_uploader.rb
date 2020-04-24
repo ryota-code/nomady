@@ -3,22 +3,22 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   # 画像の上限を100x100にする
-  process resize_to_fill: [400, 400]
+  process resize_to_fit: [400, 400]
 
   # 保存形式をJPGにする
   process convert: 'jpg'
 
   # サムネイルサイズ
   version :thumb do
-    process resize_to_fill: [300, 300]
+    process resize_to_fit: [300, 300]
   end
 
   version :thumb23 do
-    process resize_to_fill: [200, 300]
+    process resize_to_fit: [200, 300]
   end
 
   version :profile_image do
-    process resize_to_fill: [100, 100]
+    process resize_to_fit: [100, 100]
   end
 
   # デフォルト画像の設定

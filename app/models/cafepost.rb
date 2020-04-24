@@ -39,12 +39,12 @@ class Cafepost < ApplicationRecord
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 
-  # マイクロポストをいいねする
+  # いいねする
   def iine(user)
     favorites.create(user_id: user.id)
   end
 
-  # マイクロポストのいいねを解除する
+  # いいねを解除する
   def uniine(user)
     favorites.find_by(user_id: user.id).destroy
   end

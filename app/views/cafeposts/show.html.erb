@@ -23,16 +23,16 @@
     <div class="post-detail-right">
       <p class="post-content"><%= @cafepost.content %></p>
       <% if @cafepost.wifi %>
-      <p>wifiあります</p>
+      <p><%= icon('fas', 'wifi fa-2x') %></p>
       <% end %>
       <% if @cafepost.power %>
-      <p>コンセントあります</p>
+      <p><%= icon('fas', 'plug fa-2x') %></p>
       <% end %>
     </div>
   </div>
   
   <h2>コメント一覧</h2>
-  <div>コメント<%= @comments.count %></div>
+  <div>コメント(<%= @comments.count %>)</div>
   <% @comments.each do |c| %>
     <div>
       <%= link_to c.user.name, user_path(c.user) %>
@@ -85,7 +85,9 @@ $(document).on('turbolinks:load',
 
 
 <style type="text/css">
-  #map { height: 200px;
-         width: 70%;}
+  #map { height: 300px;
+         width: 70%;
+         margin: 0 auto;
+  }
 </style>
 
