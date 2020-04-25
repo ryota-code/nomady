@@ -4,10 +4,15 @@ class CafepostsController < ApplicationController
   before_action :set_cafepost, only: %i[show edit update]
   def index
     @cafeposts = Cafepost.search(params[:search]).page(params[:page]).per(10)
+    @favorite_ranks = Cafepost.find(Favorite.group(:cafepost_id).order('count(cafepost_id) desc').limit(10).pluck(:cafepost_id))
+  end
+  
+  def tagindex
     if params[:tag_name]
       @cafeposts = Cafepost.tagged_with(params[:tag_name].to_s)
+    else
+      @cafeposts = Cafepost.all
     end
-    @favorite_ranks = Cafepost.find(Favorite.group(:cafepost_id).order('count(cafepost_id) desc').limit(10).pluck(:cafepost_id))
   end
 
   def new
