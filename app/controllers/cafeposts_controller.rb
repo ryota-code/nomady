@@ -9,9 +9,9 @@ class CafepostsController < ApplicationController
   
   def tagindex
     if params[:tag_name]
-      @cafeposts = Cafepost.tagged_with(params[:tag_name].to_s)
+      @cafeposts = Cafepost.tagged_with(params[:tag_name]).page(params[:page]).per(10)
     else
-      @cafeposts = Cafepost.all
+      @cafeposts = Cafepost.all.page(params[:page]).per(10)
     end
   end
 

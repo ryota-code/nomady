@@ -1,3 +1,3 @@
-<% tag_list.each do |tag| %>
-<%= link_to "#" + tag, tag_name_path(:tag_name), class: "tag-list"%>
+<% tag_list.each do |tag_name| %>
+<%= link_to "#" + tag_name, tag_name_path(tag_name), class: "tag-list"%>
 <% end %>

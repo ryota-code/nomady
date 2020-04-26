@@ -1,1 +1,8 @@
-<%= render @cafeposts %>
+
+<div class="container">
+    <h1>のタグがついている記事</h1>
+    <ul class="post-items">
+        <%= render @cafeposts %>
+    </ul>
+    <%= paginate @cafeposts %>
+</div>
