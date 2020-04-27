@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function() {
 $(function(){
       // ドロップダウンメニュー
   $('.dropdown-btn').hover(
@@ -27,3 +28,5 @@ $(function(){
     });
   });
 });
+
+})
