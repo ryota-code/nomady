@@ -18,23 +18,27 @@
         <%= link_to 'Nomady', '/cafeposts' %>
       </div>
       <div class="header-right">
-        <ul class="header-nav">
+        <ul class="header-nav globalnav">
           <% if logged_in? %>
-          <li class="header-nav-item"><%= link_to "ログアウト", logout_path, method: :delete %></li>
-          <li class="header-nav-item"><%= link_to "プロフィール", current_user %></li>
-          <li class="header-nav-item"><%= link_to "プロフィール設定", edit_user_path(current_user) %></li>
           <li class="header-nav-item"><%= link_to "ユーザー一覧", users_path %></li>
-          <li class="header-nav-item"><%= link_to "マップを開く", "/cafeposts/gmap" %></li>
+          <li class="header-nav-item"><%= link_to "近くのカフェ", "/cafeposts/gmap" %></li>
           <li class="header-nav-item">
             <%= link_to post_path do %>
             投稿  <%= icon('fas', 'paste') %>
             <% end %>
-            </li>
+          </li>
+          <li class="header-nav-item dropdown-btn"><%= current_user.name %>
+            <ul class="dropdown">
+              <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+              <li><%= link_to "プロフィール", current_user %></li>
+              <li><%= link_to "プロフィール設定", edit_user_path(current_user) %></li>
+            </ul>
+          </li>
           <% else %>
           <li class="header-nav-item"><%= link_to "ログイン", login_path %></li>
           <li class="header-nav-item"><%= link_to "ユーザー登録", signup_path %></li>
           <li class="header-nav-item"><%= link_to "ユーザー一覧", users_path %></li>
-          <li class="header-nav-item"><%= link_to "マップを開く", "/cafeposts/gmap" %></li>
+          <li class="header-nav-item"><%= link_to "近くのカフェ", "/cafeposts/gmap" %></li>
           <% end %>
 
         </ul>

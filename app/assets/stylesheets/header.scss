@@ -25,3 +25,39 @@ header{
 .header-left a{
   color: #fff;
 }
+
+// ドロップダウンメニュー
+.globalnav {
+  .dropdown-btn {
+    position:relative;
+    display:inline-block;
+    cursor:pointer;
+    &:hover {
+      background:$main-color;
+    }
+  }
+  .dropdown {
+    z-index:1000;
+    background:$main-color;
+    position:absolute;
+    left:-20px;
+    top:30px;
+    width:200px;
+    padding:10px 20px;
+    display:none;
+    li {
+      display:inline-block;
+      margin:10px 0;
+      a {
+        color:#fff;
+      }
+    }
+  }
+  .nav-button-wrap,
+  .open {
+    display:block;
+  }
+  .close {
+    display:block;
+  }
+}

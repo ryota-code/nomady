@@ -44,6 +44,12 @@
   display: flex;
 }
 
+.wifi-power{
+  i{
+    color: #00ffff;
+  }
+}
+
 .post-content{
   padding: 0 20px 0 20px;
 }
@@ -138,5 +144,13 @@
 // いいねfontawsome
 .favored{
   color: red;
-  background-color: $sub-color;
+  background-color: $sub2-color;
+}
+
+.fav-form{
+  button{
+    background-color: $sub2-color;
+    border: 1px solid $sub2-color;
+    outline: none;
+  }
 }
