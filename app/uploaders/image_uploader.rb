@@ -10,15 +10,19 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # サムネイルサイズ
   version :thumb do
-    process resize_to_fit: [300, 300]
+    process resize_to_fit: [300, 300, "Center"]
   end
 
   version :thumb23 do
-    process resize_to_fit: [200, 300]
+    process resize_to_fit: [200, 300, "Center"]
   end
 
   version :profile_image do
-    process resize_to_fit: [100, 100]
+    process resize_to_fit: [100, 100, "Center"]
+  end
+  
+  version :profile_top do
+    process resize_to_fill: [40, 40, "Center"]
   end
 
   # デフォルト画像の設定
