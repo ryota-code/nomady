@@ -29,9 +29,9 @@
           </li>
           <li class="header-nav-item dropdown-btn"><%= current_user.name %>  <%= image_tag current_user.image.profile_top.url %>
             <ul class="dropdown">
-              <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
-              <li><%= link_to "プロフィール", current_user %></li>
+              <li><%= link_to "マイページ", current_user %></li>
               <li><%= link_to "プロフィール設定", edit_user_path(current_user) %></li>
+              <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
             </ul>
           </li>
           <% else %>

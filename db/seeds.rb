@@ -20,8 +20,8 @@ User.create!(name: "ミューツー",
         )
 end
 
-users = User.order(:created_at).take(6)
-3.times do
+users = User.order(:created_at).take(10)
+2.times do
   title = "スターバックス"
   content = Faker::Lorem.sentence(5)
   postcode =  Faker::Address.postcode
@@ -31,11 +31,3 @@ users = User.order(:created_at).take(6)
   power = "1"
   users.each { |user| user.cafeposts.create!(title: title, content: content, wifi: wifi, power: power, postcode: postcode, address_all: address_all, tag_list: tag_list ) }
 end
-
-
-array = %w(aaa bbb ccc ddd eee fff ggg)
-array.each{ |tag|
-  tag_list = ActsAsTaggableOn::Tag.new
-  tag_list.name = tag
-  tag_list.save
-}

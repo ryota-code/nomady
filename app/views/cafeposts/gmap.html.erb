@@ -5,6 +5,14 @@
     width: 100%;}
 </style>
 <script type="text/javascript">
+  function initMap() {
+
+  var test ={lat: 35.681298, lng: 139.7640582};
+  var map = new google.maps.Map(document.getElementById('map2'), {
+  zoom: 13,
+  center: test
+  });
+  }
     
   handler = Gmaps.build('Google');
   handler.buildMap({
@@ -15,7 +23,7 @@
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     handler.getMap().setCenter(new google.maps.LatLng(35.681298, 139.7640582));
-    handler.getMap().setZoom(10);
+    handler.getMap().setZoom(13);
   });
 </script>
 <div id="map2"></div>
