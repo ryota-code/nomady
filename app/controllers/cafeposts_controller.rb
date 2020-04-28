@@ -8,6 +8,7 @@ class CafepostsController < ApplicationController
   end
   
   def tagindex
+    @tag = params[:tag_name]
     if params[:tag_name]
       @cafeposts = Cafepost.tagged_with(params[:tag_name]).page(params[:page]).per(10)
     else
