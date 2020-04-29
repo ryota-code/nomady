@@ -5,6 +5,7 @@
     width: 100%;}
 </style>
 <script type="text/javascript">
+$(document).on('turbolinks:load', function() {
   function initMap() {
 
   var test ={lat: 35.681298, lng: 139.7640582};
@@ -25,5 +26,7 @@
     handler.getMap().setCenter(new google.maps.LatLng(35.681298, 139.7640582));
     handler.getMap().setZoom(13);
   });
+  
+})
 </script>
 <div id="map2"></div>
