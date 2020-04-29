@@ -16,15 +16,29 @@
 }
 
 .user{
-  display: flex;
   width: 45%;
   border: 1px solid $main-color;
   margin-bottom: 30px;
   border-radius: 10px;
-  padding: 10px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
+  background-color: $sub-color;
+  color: #fff;
+  display: inline-block;
+  margin: 0 0 1em;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  a{
+    padding: 10px;
+    display: flex;
+  }
   img{
     border-radius: 50%;
   }
+}
+
+.user:hover{
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.1875em);
 }
 
 .user-left{

@@ -18,8 +18,8 @@
 
 .post-item-link{
   width: 100%;
-  display: inline-block;
-  text-align: center;
+  display: block;
+  box-sizing: border-box;
   img{
     width: 100%;
     height: 300px;
