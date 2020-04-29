@@ -4,9 +4,6 @@ class CreateFavorites < ActiveRecord::Migration[5.2]
       t.references :user, null:false
       t.references :cafepost, null:false
       t.timestamps
-      
-      t.index :user
-      t.index :cafepost
     end
   end
 end
