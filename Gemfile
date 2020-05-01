@@ -52,6 +52,9 @@ gem 'dotenv-rails'
 # タグ付け機能追加
 gem 'acts-as-taggable-on', '~> 6.0'
 
+#検索機能
+gem 'ransack'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'sqlite3'
