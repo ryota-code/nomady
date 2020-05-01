@@ -1,51 +1,52 @@
 <div class="post-wrap">
-  <div class="post-image">
-    <% if @cafepost.image.url.nil? %>
-    <%= image_tag 'noimage.png' %>
-    <% else %>
-    <%= image_tag @cafepost.image.url %>
-    <% end %>
+  <div class="post-name">
+    <h1><%= @cafepost.title %></h1>
   </div>
   <div class="post-detail">
     <div class="post-detail-left">
+      <% if @cafepost.image.url.nil? %>
+      <%= image_tag 'noimage.png' %>
+      <% else %>
+      <%= image_tag @cafepost.image.url %>
+      <% end %>
+    </div>
+    <div class="post-detail-right">
       <div class="post-user-detail">
         <%= image_tag @cafepost.user.image.thumb23.url %>
         <p><%= link_to @cafepost.user.name, @cafepost.user %></p>
       </div>
       <p class="post-time">
+        <%= icon('fas', 'clock') %>
         <%= @cafepost.updated_at.strftime("%Y/%m/%d") %>
       </p>
+      <div class="address_all">
+    <%= icon('fas', 'map-marker-alt') %>
+    <div class="address">
       <p class="post-postcode">〒<%= @cafepost.postcode %></p>
-      <p class="post-address">
-        <%= @cafepost.address_all %>
-      </p>
+      <p class="address"><%= @cafepost.address_all %></p>
     </div>
-    <div class="post-detail-right">
+  </div>
       <p class="post-content"><%= @cafepost.content %></p>
       <% if @cafepost.wifi %>
-      <p><%= icon('fas', 'wifi fa-2x') %></p>
+      <%= icon('fas', 'wifi fa-2x') %>
       <% end %>
       <% if @cafepost.power %>
-      <p><%= icon('fas', 'plug fa-2x') %></p>
+      <%= icon('fas', 'plug fa-2x') %>
       <% end %>
     </div>
   </div>
   
   <h2>コメント一覧</h2>
   <div>コメント(<%= @comments.count %>)</div>
-  <% @comments.each do |c| %>
-    <div>
-      <%= link_to c.user.name, user_path(c.user) %>
-      <%= c.content %>
-      <hr>
-    </div>
-  <% end %>
+  <%= render 'comments/index', { comments: @comments } %>
   
-  <%= form_for [@cafepost, @comment] do |f| %>
-    <%= f.text_field :content %>
-    <%= f.hidden_field :cafepost_id, value: @cafepost.id %>
-    <br>
-    <%= f.submit 'コメントする' %>
+  <% if logged_in? %>
+    <%= form_with(model: [@cafepost, @comment]) do |f| %>
+      <%= f.text_area :content %>
+      <%= f.hidden_field :cafepost_id, value: @cafepost.id %>
+      <br>
+      <%= f.submit 'コメントする' %>
+    <% end %>
   <% end %>
   
 </div>

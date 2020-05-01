@@ -1,0 +1,10 @@
+    <div id="comments_area">
+<% comments.each do |c| %>
+      <%= link_to c.user.name, user_path(c.user) %>
+      <%= c.content %>
+      <% if c.user == current_user %>
+        <p><%= link_to 'コメントを削除する', cafepost_comment_path(c.cafepost_id, c.id), method: :delete, remote: true %></p>
+      <% end %>
+      <hr>
+  <% end %>
+    </div>

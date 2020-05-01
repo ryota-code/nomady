@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/cafeposts/gmap' => 'cafeposts#gmap'
   get 'tags/:tag_name', to: 'cafeposts#tagindex', as: :tag_name
   resources :cafeposts do
-    resources :comments, only: [:create, :edit, :update]
+    resources :comments
   end
   
   #お気に入り

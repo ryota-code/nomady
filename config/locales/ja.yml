@@ -1,4 +1,16 @@
 ja:
+  activerecord:
+    models:
+      user: ユーザー
+      cafepost: カフェ
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+      cafepost:
+        title: 店の名前
+        content: 紹介文
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>
