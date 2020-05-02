@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/post' => 'cafeposts#new'
   get '/cafeposts/gmap' => 'cafeposts#gmap'
   get 'tags/:tag_name', to: 'cafeposts#tagindex', as: :tag_name
+  get 'search', to: 'cafeposts#search'
   resources :cafeposts do
     resources :comments
   end

@@ -3,7 +3,9 @@ class CafepostsController < ApplicationController
   before_action :good_user, only: [:destroy]
   before_action :set_cafepost, only: %i[show edit update]
   def index
-    @cafeposts = Cafepost.search(params[:search]).page(params[:page]).per(10)
+    @q = Cafepost.ransack(params[:q])
+    @cafeposts_search = @q.result(distinct: true)
+    @cafeposts = @q.result(distinct: true).page(params[:page]).per(10)
     @favorite_ranks = Cafepost.find(Favorite.group(:cafepost_id).order('count(cafepost_id) desc').limit(10).pluck(:cafepost_id))
   end
   
@@ -60,11 +62,20 @@ class CafepostsController < ApplicationController
       marker.infowindow place.title
     end
   end
+  
+  def search
+    @q = Cafepost.ransack(search_params)
+    @cafeposts_search = @q.result(distinct: true).page(params[:page]).per(10)
+  end
 
   private
 
   def cafepost_params
     params.require(:cafepost).permit(:wifi, :power, :image, :title, :content, :postcode, :address_all, :tag_list)
+  end
+  
+  def search_params
+    params.require(:q).permit(:title_or_address_all_cont, :wifi_eq, :power_eq)
   end
 
   def good_user
