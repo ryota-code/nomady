@@ -1,4 +1,4 @@
-$(window).on("load", function() {
+$(document).on('turbolinks:load', function() {
 	var _radio = [];
 	$('input.radio').on('click', function() {
 		var _this = $(this);
@@ -16,4 +16,5 @@ $(window).on("load", function() {
 			}
 		}
 	});
-});
+
+})

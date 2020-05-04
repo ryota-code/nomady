@@ -4,7 +4,6 @@ class CafepostsController < ApplicationController
   before_action :set_cafepost, only: %i[show edit update]
   def index
     @q = Cafepost.ransack(params[:q])
-    @cafeposts_search = @q.result(distinct: true)
     @cafeposts = @q.result(distinct: true).page(params[:page]).per(10)
     @favorite_ranks = Cafepost.find(Favorite.group(:cafepost_id).order('count(cafepost_id) desc').limit(10).pluck(:cafepost_id))
   end
@@ -61,11 +60,6 @@ class CafepostsController < ApplicationController
       marker.lng place.longitude
       marker.infowindow place.title
     end
-  end
-  
-  def search
-    @q = Cafepost.ransack(search_params)
-    @cafeposts_search = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   private

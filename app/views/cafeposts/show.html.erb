@@ -12,32 +12,43 @@
     </div>
     <div class="post-detail-right">
       <div class="post-user-detail">
-        <%= image_tag @cafepost.user.image.thumb23.url %>
+        <%= image_tag @cafepost.user.image.profile_top.url %>
         <p><%= link_to @cafepost.user.name, @cafepost.user %></p>
       </div>
       <p class="post-time">
         <%= icon('fas', 'clock') %>
         <%= @cafepost.updated_at.strftime("%Y/%m/%d") %>
       </p>
-      <div class="address_all">
-    <%= icon('fas', 'map-marker-alt') %>
+      <p class="post-content"><%= @cafepost.content %></p>
+        <%= render "favorites/favorite_form", cafepost: @cafepost %>
+        <% if @cafepost.wifi %>
+        <span class="tag-list"><%= icon('fas', 'wifi fa-2x') %>Wifiあり</span>
+        <% else %>
+        <span class="tag-list">Wifiなし</span>
+        <% end %>
+        <% if @cafepost.power %>
+        <span class="tag-list"><%= icon('fas', 'plug fa-2x') %>コンセントあり</span>
+        <% else %>
+        <span class="tag-list">コンセントなし</span>
+        <% end %>
+   <div class="address_all">
+    <%= icon('fas', 'map-marker-alt fa-2x') %>
     <div class="address">
       <p class="post-postcode">〒<%= @cafepost.postcode %></p>
       <p class="address"><%= @cafepost.address_all %></p>
     </div>
   </div>
-      <p class="post-content"><%= @cafepost.content %></p>
-      <% if @cafepost.wifi %>
-      <%= icon('fas', 'wifi fa-2x') %>
-      <% end %>
-      <% if @cafepost.power %>
-      <%= icon('fas', 'plug fa-2x') %>
-      <% end %>
     </div>
   </div>
   
-  <h2>コメント一覧</h2>
-  <div>コメント(<%= @comments.count %>)</div>
+  
+  <ul class="tabnav">
+    <li><a href="#tab01">コメント一覧</a></li>
+    <li><a href="#tab02">マップ</a></a></li>
+  </ul>
+  <div class="tabcontent">
+    <div id="tab01">
+      <div>コメント(<%= @comments.count %>)</div>
   <%= render 'comments/index', { comments: @comments } %>
   
   <% if logged_in? %>
@@ -45,9 +56,18 @@
       <%= f.text_area :content %>
       <%= f.hidden_field :cafepost_id, value: @cafepost.id %>
       <br>
-      <%= f.submit 'コメントする' %>
+      <%= f.submit 'コメントする', class: "btn btn-comment" %>
     <% end %>
   <% end %>
+    </div>
+    
+    <div id="tab02">
+        <div id="map"></div>
+    </div>
+  </div>
+  
+  
+  
   
 </div>
 
@@ -80,14 +100,14 @@ $(document).on('turbolinks:load',
   });
 </script>
 
-  <div id="map"></div>
+
 
 
 
 
 <style type="text/css">
   #map { height: 300px;
-         width: 70%;
+         width: 100%;
          margin: 0 auto;
   }
 </style>

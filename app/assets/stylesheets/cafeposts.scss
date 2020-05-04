@@ -38,6 +38,7 @@
 .post-title{
   font-size: 2.8rem;
   padding: 5px;
+  font-weight: bold;
 }
 
 .wifi-power{
@@ -46,17 +47,17 @@
 
 .wifi-power{
   i{
-    color: #00ffff;
+    color: #8bc24c;
   }
 }
 
 .post-content{
-  padding: 0 20px 0 20px;
+
 }
 
 .address_all{
   display: flex;
-  margin-bottom: 20px;
+  margin-top: 20px;
   i{
     margin: 20px 20px 0 20px;
   }
@@ -64,6 +65,7 @@
 
 .post-profile{
   display: flex;
+  margin: 0 0 20px 20px;
   img{
     width: 50px;
     height: 50px;
@@ -80,7 +82,7 @@
 
 .tag-list{
   padding: 10px;
-  background-color: black;
+  background-color: #f29c2b;
   color: #fff;
   border-radius: 5px;
 }
@@ -91,7 +93,8 @@
 
 // 投稿詳細ページ
 .post-wrap{
-  width: 80%;
+  width: 70%;
+  padding-bottom: 50px;
   margin: auto;
 }
 
@@ -120,19 +123,18 @@
 .post-detail{
   display: flex;
   margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
 }
 
 .post-detail-left{
   width: 45%;
-  border: double 5px #4ec4d3;
   margin-right: 30px;
   img{
     width: 100%;
   }
-}
-
-.post-detail-right{
-  
 }
 
 .post-user-detail{
@@ -183,3 +185,9 @@
     outline: none;
   }
 }
+
+.icon-m{
+  margin: 10px;
+}
+
+// コメント

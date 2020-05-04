@@ -6,16 +6,22 @@
     <%= image_tag cafepost.image.thumb.url, alt: "thumbnail"%>
     <% end %>
   <% end %>
-  <h3 class="post-title"><%= cafepost.title%></h3>
+  <h2 class="post-title"><%= cafepost.title%></h2>
+  
+  <p class="post-content"><%= cafepost.content %></p>
   <div class="wifi-power">
+    <%= render "favorites/favorite_form", cafepost: cafepost %>
     <% if cafepost.wifi %>
-    <p><%= icon('fas', 'wifi fa-2x') %></p>
+    <p><%= icon('fas', 'wifi fa-2x icon-m') %>Wifiあり</p>
+    <% else %>
+    <p>Wifiなし</p>
     <% end %>
     <% if cafepost.power %>
-    <p><%= icon('fas', 'plug fa-2x') %></p>
+    <p><%= icon('fas', 'plug fa-2x icon-m') %>電源あり</p>
+    <% else %>
+    <p>電源なし</p>
     <% end %>
   </div>
-  <p class="post-content"><%= cafepost.content %></p>
   <div class="address_all">
     <%= icon('fas', 'map-marker-alt') %>
     <div class="address">
@@ -27,7 +33,6 @@
     <%= icon('fas', 'tags') %>
     <%= render "cafeposts/tag_list", tag_list: cafepost.tag_list %>
   </div>
-  <%= render "favorites/favorite_form", cafepost: cafepost %>
   <%= link_to cafepost do %>
   <p>コメント(<%= cafepost.comments.count %>)</p>
   <% end %>
@@ -43,10 +48,10 @@
   </div>
   <% if good_user?(cafepost.user) %>
   <%= link_to cafepost, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
-  <%= icon('fas', 'trash-alt fa-2x') %>
+  <%= icon('fas', 'trash-alt fa-2x icon-m') %>
   <% end %>
   <%= link_to edit_cafepost_path(cafepost) do %>
-  <%= icon('fas', 'edit fa-2x') %>
+  <%= icon('fas', 'edit fa-2x icon-m') %>
   <% end %>
   <% end %>
   <div class="timestamp">

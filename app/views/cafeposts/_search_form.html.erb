@@ -1,19 +1,19 @@
-<%= search_form_for(@q, url:search_path) do |f| %>
+<%= search_form_for(@q, url:cafeposts_path) do |f| %>
 <div class="search-form-wrapper">
-  <div class="search-form-item">
+  <div class="search-form-item cp_iptxt">
+    <%= f.search_field :title_or_address_all_cont, placeholder: "", class: "ef" %>
     <%= f.label :title_or_address_all_cont, '店名か場所で探す' %>
-    <%= f.search_field :title_or_address_all_cont, placeholder: "〇〇カフェ or 東京都千代田区" %>
   </div>
   
   <div class="search-form-item">
-    <span>Wifi</span>
-    <%= f.radio_button :wifi_eq, 1, class: "radio" %>
+    <%= f.radio_button :wifi_eq, 1, class: "radio wifi" %>
+    <%= f.label :wifi_eq_1, 'Wifi', class: "labeling" %>
   </div>
   
   <div class="search-form-item">
-  <span>電源</span>
-    <%= f.radio_button :power_eq, 1, class: "radio" %>
-    <%= f.submit %>
+    <%= f.radio_button :power_eq, 1, class: "radio powoer" %>
+    <%= f.label :power_eq_1, '電源', class: "labeling" %>
   </div>
+    <%= f.submit "検索", class: "s-btn" %>
   <% end %>
 </div>

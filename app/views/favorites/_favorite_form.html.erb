@@ -4,14 +4,14 @@
     <% if cafepost.iine?(current_user) %>
       <%= form_for(cafepost.favorites.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
         <%= button_tag do %>
-          <%= content_tag :span, "#{cafepost.favorites_count}", class: "fa fa-heart favored" %>
+          <%= content_tag :span, "#{cafepost.favorites_count}", class: "fa fa-heart favored fa-2x icon-m" %>
         <% end %>
       <% end %>
     <% else %>
       <%= form_for(cafepost.favorites.build, remote: true) do |f| %>
         <div><%= hidden_field_tag :cafepost_id, cafepost.id %></div>
         <%= button_tag do %>
-          <%= content_tag :span, "#{cafepost.favorites_count}", class: "fa fa-heart" %>
+          <%= content_tag :span, "#{cafepost.favorites_count}", class: "fa fa-heart fa-2x icon-m" %>
         <% end %>
       <% end %>
     <% end %>
