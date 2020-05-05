@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     end
   end
   
+  # ゲストユーザーログイン
+  post '/guest_login' => 'guest_sessions#create' 
+  
   # セッション
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
