@@ -4,6 +4,7 @@
     <title>Nomady</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -16,7 +17,7 @@
   <header>
     <div class="container header-wrapper">
       <div class="header-left">
-        <%= link_to 'Nomady', '/cafeposts' %>
+        <%= link_to 'Nomady', root_path %>
       </div>
       <div class="header-right">
         <ul class="header-nav globalnav">
@@ -46,7 +47,54 @@
 
         </ul>
       </div>
+      <nav class="global-nav">
+        <ul class="global-nav__list">
+          <% if logged_in? %>
+          <li class="global-nav__item"><%= link_to "ユーザー一覧", users_path %></li>
+          <li class="global-nav__item"><%= link_to "カフェ一覧", "/cafeposts" %></li>
+          <li class="global-nav__item"><%= link_to "近くのカフェ", "/cafeposts/gmap" %></li>
+          <li class="global-nav__item">
+            <%= link_to post_path do %>
+            投稿  <%= icon('fas', 'paste') %>
+            <% end %></li>
+          <li class="global-nav__item dropdown-btn"><%= image_tag current_user.image.profile_top.url %>  <%= current_user.name %>
+            <ul class="dropdown">
+              <li><%= link_to "マイページ", current_user %></li>
+              <li><%= link_to "プロフィール設定", edit_user_path(current_user) %></li>
+              <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+            </ul>
+          </li>
+          <% else %>
+          <li class="global-nav__item"><%= link_to "ログイン", login_path %></li>
+          <li class="global-nav__item"><%= link_to "ユーザー登録", signup_path %></li>
+          <li class="global-nav__item"><%= link_to "ユーザー一覧", users_path %></li>
+          <li class="global-nav__item"><%= link_to "カフェ一覧", "/cafeposts" %></li>
+          <li class="global-nav__item"><%= link_to "近くのカフェ", "/cafeposts/gmap" %></li>
+          <% end %>
+        </ul>
+      </nav>
+      <div class="hamburger" id="js-hamburger">
+        <span class="hamburger__line hamburger__line--1"></span>
+        <span class="hamburger__line hamburger__line--2"></span>
+        <span class="hamburger__line hamburger__line--3"></span>
+      </div>
+      <div class="black-bg" id="js-black-bg"></div>
     </div>
+    <script type="text/javascript">
+      function toggleNav() {
+      var body = document.body;
+      var hamburger = document.getElementById('js-hamburger');
+      var blackBg = document.getElementById('js-black-bg');
+    
+      hamburger.addEventListener('click', function() {
+        body.classList.toggle('nav-open');
+      });
+      blackBg.addEventListener('click', function() {
+        body.classList.remove('nav-open');
+      });
+    }
+    toggleNav();
+    </script>
   </header>
   <body>
     <% flash.each do |message_type, message| %>

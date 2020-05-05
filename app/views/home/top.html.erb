@@ -1,9 +1,11 @@
 
-  <div class="top container">
+  <div class="top">
     <div class="top-wrapper">
-      <h3 class="copy">Bestな空間を見つけよう</h3>
-      <%= link_to 'ログイン', login_path, class: 'btn' %>
-      <%= link_to '新規登録', signup_path, class: 'btn' %>
-      <%= link_to 'ゲストユーザーログイン', guest_login_path, class: 'btn', method: :post %>
+      <h2 class="copy">Bestな空間を見つけよう</h2>
+      <%= link_to 'ログイン', login_path, class: 'btn btn-login' %>
+      <%= link_to '新規登録', signup_path, class: 'btn btn-register' %>
+      <div class="guest-btn">
+        <%= link_to 'ゲストユーザーログイン', guest_login_path, class: 'btn', method: :post %>
+      </div>
     </div>
   </div>

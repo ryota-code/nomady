@@ -3,20 +3,15 @@
 
 // ユーザー一覧ページ
 .user-wrapper{
-  padding: 50px;
+  padding: 50px 0;
   h2{
     text-align: center;
     margin-bottom: 30px;
   }
 }
-.users{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
+
 
 .user{
-  width: 45%;
   border: 1px solid $main-color;
   margin-bottom: 30px;
   border-radius: 10px;
@@ -24,9 +19,9 @@
   background-color: $sub-color;
   color: #fff;
   display: inline-block;
-  margin: 0 0 1em;
   cursor: pointer;
   transition: all 0.3s ease 0s;
+  height: 150px;
   a{
     padding: 10px;
     display: flex;
@@ -81,4 +76,11 @@
 // プロフィール編集ページ
 .edit{
   padding-top: 50px;
+}
+
+@include mq(tab){
+  .users{
+    display: block;
+  }
+  
 }
