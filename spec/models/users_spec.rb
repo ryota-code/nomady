@@ -6,9 +6,6 @@ RSpec.describe User, type: :model do
   end
 
   describe 'バリデーション' do
-    it 'nameとemailどちらも値が設定されていれば、OK' do
-      expect(@user.valid?).to eq(true)
-    end
 
     it 'nameが空だとNG' do
       @user.name = ''
@@ -18,6 +15,23 @@ RSpec.describe User, type: :model do
     it 'emailが空だとNG' do
       @user.email = ''
       expect(@user.valid?).to eq(false)
+    end
+    
+    it 'detailが空だとNG' do
+      @user.detail = ''
+      expect(@user.valid?).to eq(false)
+    end
+    
+    describe 'password' do
+      it 'passwordが空だとNG' do
+        @user.password = ''
+        expect(@user.valid?).to eq(false)
+      end
+      
+      it 'passwordが3文字以下だとNG' do
+        @user.password.length <= 3
+        expect(@user.valid?).to eq(false)
+      end
     end
   end
 end
