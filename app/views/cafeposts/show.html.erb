@@ -22,14 +22,14 @@
       <p class="post-content"><%= @cafepost.content %></p>
         <%= render "favorites/favorite_form", cafepost: @cafepost %>
         <% if @cafepost.wifi %>
-        <span class="tag-list"><%= icon('fas', 'wifi fa-2x') %>Wifiあり</span>
+        <span class="tag-list post-conent-wifi"><%= icon('fas', 'wifi fa-2x') %>Wifiあり</span>
         <% else %>
-        <span class="tag-list">Wifiなし</span>
+        <span class="tag-list post-conent-wifi">Wifiなし</span>
         <% end %>
         <% if @cafepost.power %>
-        <span class="tag-list"><%= icon('fas', 'plug fa-2x') %>コンセントあり</span>
+        <span class="tag-list post-conent-power"><%= icon('fas', 'plug fa-2x') %>コンセントあり</span>
         <% else %>
-        <span class="tag-list">コンセントなし</span>
+        <span class="tag-list post-conent-power">コンセントなし</span>
         <% end %>
    <div class="address_all">
     <%= icon('fas', 'map-marker-alt fa-2x') %>

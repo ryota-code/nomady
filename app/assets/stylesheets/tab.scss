@@ -25,3 +25,9 @@
     background: $main-color;
     color: #fff;
 }
+
+@include mq(sp){
+    .tabnav li a{
+        padding: 10px 70px;
+    }
+}

@@ -10,7 +10,7 @@
 .top-wrapper{
   width: 100%;
   text-align: center;
-  padding-top: 120px;
+  padding: 120px 0px 60px 0;
 }
 
 .copy{
@@ -26,6 +26,7 @@
 
 @include mq(sp){
   .top-wrapper{
+    padding-top: 70px;
     a{
       font-size: 2rem;
     }

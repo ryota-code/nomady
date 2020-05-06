@@ -152,7 +152,6 @@ input[type="radio"]:checked + label {
 
 .search-form-item{
    display: flex;
-   margin-right: 30px;
    
 }
 
@@ -229,4 +228,35 @@ input[type="radio"]:checked + label {
 	top: -16px;
 	transition: 0.3s;
 	color: #da3c41;
+}
+
+@include mq(tab){
+  .form-wrapper{
+    width: 70%;
+  }
+}
+
+@include mq(sp){
+  .search-form-wrapper{
+    width: 50%;
+    display: block;
+    margin: 60px auto;
+  }
+  .search-wifipower{
+    display: inline-block;
+  }
+  .ef{
+    width: 100%;
+  }
+  .labeling{
+    width: 140px;
+  }
+  .s-btn{
+    width: 100%;
+  }
+  
+  #img_field{
+    width: auto;
+    height: auto;
+  }
 }

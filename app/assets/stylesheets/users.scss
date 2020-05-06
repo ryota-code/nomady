@@ -9,6 +9,9 @@
     margin-bottom: 30px;
   }
 }
+.row{
+  margin: 0;
+}
 
 
 .user{
@@ -18,10 +21,8 @@
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
   background-color: $sub-color;
   color: #fff;
-  display: inline-block;
   cursor: pointer;
   transition: all 0.3s ease 0s;
-  height: 150px;
   a{
     padding: 10px;
     display: flex;
@@ -42,9 +43,9 @@
 
 // プロフィールページ
 .profile-wrapper{
-  width: 60%;
+  max-width: 800px;
   margin: 50px auto 50px auto;
-  padding: 30px;
+  padding: 20px;
   display: flex;
   border: 2px solid #2ECC71;
   border-radius: 10px;
@@ -83,4 +84,24 @@
     display: block;
   }
   
+}
+
+@include mq(sp){
+  .user{
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+  }
+  
+  .user-right p{
+    display: none;
+  }
+  
+  .profile-wrapper{
+    display: block;
+    text-align: center;
+  }
+  
+  .profile-right-upper{
+    display: block;
+  }
 }

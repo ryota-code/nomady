@@ -30,7 +30,6 @@
   box-sizing: border-box;
   margin-bottom: 20px;
   background-color: $sub2-color;
-  width: calc( 95% / 2 );
   color: #fff;
   box-shadow: 2px 2px 4px gray;
 }
@@ -65,7 +64,7 @@
 
 .post-profile{
   display: flex;
-  margin: 0 0 20px 20px;
+  padding: 0 0 20px 20px;
   img{
     width: 50px;
     height: 50px;
@@ -151,10 +150,6 @@
   }
 }
 
-.timestamp{
-  float: right;
-  margin-right: 20px;
-}
 
 // いいねTwitter Version
 .heart {
@@ -191,3 +186,48 @@
 }
 
 // コメント
+
+@include mq(tab){
+  .post-detail{
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.post-detail-left{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.post-user-detail{
+  display: flex;
+  p{
+    line-height: 75px;
+    margin-left: 20px;
+  }
+}
+}
+
+
+@include mq(sp){
+  .post-wrap{
+    width: 90%;
+  }
+  .post-items{
+    display: block;
+  }
+  
+  .post-conent-wifi {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .post-conent-power{
+    display: block;
+    text-align: center;
+  }
+}
