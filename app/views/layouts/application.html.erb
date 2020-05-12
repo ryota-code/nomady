@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%# google map %>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDms08Vg-4t136yIMuX6XJROiWOfKHmCBM&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDms08Vg-4t136yIMuX6XJROiWOfKHmCBM"></script>
     <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
     <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 
@@ -24,7 +24,7 @@
           <% if logged_in? %>
           <li class="header-nav-item"><%= link_to "ユーザー一覧", users_path %></li>
           <li class="header-nav-item"><%= link_to "カフェ一覧", "/cafeposts" %></li>
-          <li class="header-nav-item"><%= link_to "近くのカフェ", "/cafeposts/gmap" %></li>
+          <li class="header-nav-item"><%= link_to "マップから探す", "/cafeposts/gmap" %></li>
           <li class="header-nav-item">
             <%= link_to post_path do %>
             投稿  <%= icon('fas', 'paste') %>
@@ -42,7 +42,7 @@
           <li class="header-nav-item"><%= link_to "ユーザー登録", signup_path %></li>
           <li class="header-nav-item"><%= link_to "ユーザー一覧", users_path %></li>
           <li class="header-nav-item"><%= link_to "カフェ一覧", "/cafeposts" %></li>
-          <li class="header-nav-item"><%= link_to "近くのカフェ", "/cafeposts/gmap" %></li>
+          <li class="header-nav-item"><%= link_to "マップから探す", "/cafeposts/gmap" %></li>
           <% end %>
 
         </ul>

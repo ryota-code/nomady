@@ -1,4 +1,4 @@
-<div class="post-wrap">
+<div class="post-wrap" id="cafepost-<%= @cafepost.id %>">
   <div class="post-name">
     <h1><%= @cafepost.title %></h1>
   </div>
@@ -21,16 +21,7 @@
       </p>
       <p class="post-content"><%= @cafepost.content %></p>
         <%= render "favorites/favorite_form", cafepost: @cafepost %>
-        <% if @cafepost.wifi %>
-        <span class="tag-list post-conent-wifi"><%= icon('fas', 'wifi fa-2x') %>Wifiあり</span>
-        <% else %>
-        <span class="tag-list post-conent-wifi">Wifiなし</span>
-        <% end %>
-        <% if @cafepost.power %>
-        <span class="tag-list post-conent-power"><%= icon('fas', 'plug fa-2x') %>コンセントあり</span>
-        <% else %>
-        <span class="tag-list post-conent-power">コンセントなし</span>
-        <% end %>
+        
    <div class="address_all">
     <%= icon('fas', 'map-marker-alt fa-2x') %>
     <div class="address">
@@ -73,30 +64,18 @@
 
 
 <script type="text/javascript">
-$(document).on('turbolinks:load', 
-  function initMap() {
-    var test = {lat: <%= @cafepost.latitude %>, lng: <%= @cafepost.longitude %>};
-    var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 15, 
-              center: test
-              });
-    var transitLayer = new google.maps.TransitLayer();
-    transitLayer.setMap(map);
-
-    var contentHTML = '<p><%= @cafepost.title%></p><p>場所：<%= @cafepost.address_all %></p>';
-    var infowindow = new google.maps.InfoWindow({
-      content: contentHTML
-    });
-
-    var marker = new google.maps.Marker({
-                  position:test,
-                  map: map,
-                  title: contentHTML
-                 });
-
-     marker.addListener('click', function() {
-       infowindow.open(map, marker);
-     });
+$(document).on('turbolinks:load', function(){
+    handler = Gmaps.build('Google');
+    handler.buildMap({
+    provider: {},
+    internal: {id: 'map'}},
+    function() {
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setCenter(new google.maps.LatLng(<%= @cafepost.latitude %>, <%= @cafepost.longitude %>));
+    handler.getMap().setZoom(13);
   });
+});
 </script>
 

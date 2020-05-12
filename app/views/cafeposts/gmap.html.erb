@@ -3,14 +3,6 @@
 
 <script type="text/javascript">
 $(document).on('turbolinks:load', function() {
-  function initMap() {
-
-  var test ={lat: 35.681298, lng: 139.7640582};
-  var map = new google.maps.Map(document.getElementById('map2'), {
-  zoom: 13,
-  center: test
-  });
-  }
     
   handler = Gmaps.build('Google');
   handler.buildMap({

@@ -24,6 +24,13 @@ class CafepostsController < ApplicationController
   def show
     @comments = @cafepost.comments
     @comment = Comment.new
+    @places = Cafepost.find(params[:id])
+    @hash = Gmaps4rails.build_markers(@places) do |place, marker|
+      marker.lat place.latitude
+      marker.lng place.longitude
+      marker.infowindow render_to_string( partial: "shared/infowindow", locals: { place: place} )
+      
+    end
   end
 
   def edit; end
@@ -58,7 +65,8 @@ class CafepostsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
-      marker.infowindow place.title
+      marker.infowindow render_to_string( partial: "shared/infowindow",
+                                          locals: { place: place} )
     end
   end
 

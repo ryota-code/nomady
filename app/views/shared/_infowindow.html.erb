@@ -1,0 +1,10 @@
+<div style="padding:10px;">
+  <%= link_to "#{place.title}", place %>
+    <% if place.wifi %>
+      <span class="tag-list post-conent-wifi"><%= icon('fas', 'wifi') %></span>
+      <% end %>
+      <% if place.power %>
+      <span class="tag-list post-conent-power"><%= icon('fas', 'plug') %></span>
+    <% end %>
+  <p><%= link_to "マップで開く" ,"https://maps.google.co.jp/maps?q=loc:#{place.latitude},#{place.longitude}&iwloc=J",target: "_blank", style: "color: blue;" %></p>
+</div>

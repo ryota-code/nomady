@@ -93,6 +93,7 @@
 // 投稿詳細ページ
 .post-wrap{
   width: 70%;
+  max-width: 1000px;
   padding-bottom: 50px;
   margin: auto;
 }
@@ -170,14 +171,13 @@
 // いいねfontawsome
 .favored{
   color: red;
-  background-color: $sub2-color;
 }
 
 .fav-form{
   button{
-    background-color: $sub2-color;
-    border: 1px solid $sub2-color;
     outline: none;
+    background-color: inherit;
+    border: none;
   }
 }
 
