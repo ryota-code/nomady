@@ -13,6 +13,10 @@
   margin: 0 auto;
 }
 
+.cafepost-thumbnail{
+  position: relative;
+}
+
 .post-item-link{
   width: 100%;
   display: block;
@@ -20,15 +24,24 @@
   img{
     width: 100%;
     height: 300px;
+    border-radius: 20px 20px 0 0;
   }
 }
 
 .post-item{
   padding: 0;
   margin-bottom: 20px;
+  border-radius: 20px;
   background-color: $sub2-color;
   color: #fff;
-  box-shadow: 2px 2px 4px gray;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.post-item:hover{
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.1875em);
 }
 
 .post-title{
@@ -50,9 +63,8 @@
 
 .address_all{
   display: flex;
-  margin-top: 20px;
   i{
-    margin: 20px 20px 0 20px;
+    margin: 10px 20px 0 20px;
   }
 }
 
@@ -67,6 +79,10 @@
 }
 
 .post-tag{
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  z-index: 10;
   margin-bottom: 20px;
   i{
     margin-left: 20px;
@@ -74,7 +90,7 @@
 }
 
 .tag-list{
-  padding: 10px;
+  padding: 5px;
   background-color: #f29c2b;
   color: #fff;
   border-radius: 5px;

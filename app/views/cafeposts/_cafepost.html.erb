@@ -1,12 +1,18 @@
 
 <li class="post-item col-md-6" id="cafepost-<%= cafepost.id %>" data-cafepost-id="<%= cafepost.id %>">
-  <%= link_to(cafepost, class: "post-item-link") do %>
-    <% if cafepost.image.url.nil? %>
-    <%= image_tag "noimage.png", alt: "thumbnail" %>
-    <% else %>
-    <%= image_tag cafepost.image.thumb.url, alt: "thumbnail"%>
+  <div class="cafepost-thumbnail">
+    <%= link_to(cafepost, class: "post-item-link") do %>
+      <% if cafepost.image.url.nil? %>
+      <%= image_tag "noimage.png", alt: "thumbnail" %>
+      <% else %>
+      <%= image_tag cafepost.image.thumb.url, alt: "thumbnail"%>
+      <% end %>
     <% end %>
-  <% end %>
+      <div class="post-tag">
+      <%= icon('fas', 'tags') %>
+      <%= render "cafeposts/tag_list", tag_list: cafepost.tag_list %>
+    </div>
+  </div>
   <h2 class="post-title"><%= cafepost.title%></h2>
   
   <p class="post-content"><%= cafepost.content %></p>
@@ -26,14 +32,10 @@
   <div class="address_all">
     <%= icon('fas', 'map-marker-alt') %>
     <div class="address">
-      <p class="post-postcode">〒<%= cafepost.postcode %></p>
       <p class="address"><%= cafepost.address_all %></p>
     </div>
   </div>
-  <div class="post-tag">
-    <%= icon('fas', 'tags') %>
-    <%= render "cafeposts/tag_list", tag_list: cafepost.tag_list %>
-  </div>
+  
   <%= link_to cafepost do %>
   <p>コメント(<%= cafepost.comments.count %>)</p>
   <% end %>
