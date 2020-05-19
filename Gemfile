@@ -13,6 +13,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'mysql2'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
 
 # 画像投稿
 gem 'carrierwave'
@@ -76,10 +78,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-end
-
-group :production do
-  gem 'pg', '0.20.0'
 end
 
 group :production, :staging do
