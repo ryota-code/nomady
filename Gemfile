@@ -15,7 +15,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'mysql2'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
-gem 'sqlite3', '~> 1.3.6'
 
 # 画像投稿
 gem 'carrierwave'
