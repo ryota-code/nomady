@@ -82,7 +82,7 @@ group :production do
   gem 'pg', '0.20.0'
 end
 
-group :production, :stagiinstall pythonng do
+group :production, :staging do
   gem 'unicorn'
 end
 

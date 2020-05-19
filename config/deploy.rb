@@ -2,16 +2,16 @@
 lock '3.4.0'
 
 # デプロイするアプリケーション名
-set :application, ''
+set :application, 'nomady'
 
 # cloneするgitのレポジトリ
-set :repo_url, 'git@github.com:NaokiMochizuki/mumu.git'
+set :repo_url, 'git@github.com:ryota-code/nomady.git'
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
 set :branch, 'master'
 
 # deploy先のディレクトリ。 
-set :deploy_to, '/var/www/mumu'
+set :deploy_to, '/var/www/rails/nomady'
 
 # シンボリックリンクをはるファイル。(※後述)
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
@@ -23,7 +23,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :keep_releases, 5
 
 # rubyのバージョン
-set :rbenv_ruby, '2.1.3'
+set :rbenv_ruby, '2.6.3'
 
 #出力するログのレベル。
 set :log_level, :debug
