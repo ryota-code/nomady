@@ -1,4 +1,5 @@
-<li class="post-item" id="cafepost-<%= cafepost.id %>" data-cafepost-id="<%= cafepost.id %>">
+
+<li class="post-item col-md-6" id="cafepost-<%= cafepost.id %>" data-cafepost-id="<%= cafepost.id %>">
   <%= link_to(cafepost, class: "post-item-link") do %>
     <% if cafepost.image.url.nil? %>
     <%= image_tag "noimage.png", alt: "thumbnail" %>
@@ -58,3 +59,4 @@
      <%= time_ago_in_words(cafepost.created_at) %>前
   </div>
 </li>
+  

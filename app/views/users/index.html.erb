@@ -1,8 +1,8 @@
 <div class="container">
   <div class="user-wrapper">
     <h2>ユーザー</h2>
-    <div class="row">
-      <ul class="users">
+
+      <ul class="users row">
         <% @users.each do |user| %>
           <li class="user col-md-6">
             <%= link_to user do %>
@@ -18,15 +18,16 @@
                 <p><%= user.detail %></p>
                 
                 <%  if current_user && current_user.admin? %>
-                <%= link_to "削除", user, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+                <%= link_to user, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+                <%= icon('fas', 'trash-alt icon-m') %>
+                <% end %>
                 <% end %>
               </div>
             <% end %>
           </li>
         <% end %>
       </ul>
-      
-    </div>
+    
     <%= paginate @users %>
   </div>
 </div>

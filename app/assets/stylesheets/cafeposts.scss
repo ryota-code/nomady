@@ -9,11 +9,8 @@
 }
 
 .post-items{
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .post-item-link{
@@ -27,7 +24,7 @@
 }
 
 .post-item{
-  box-sizing: border-box;
+  padding: 0;
   margin-bottom: 20px;
   background-color: $sub2-color;
   color: #fff;
@@ -50,9 +47,6 @@
   }
 }
 
-.post-content{
-
-}
 
 .address_all{
   display: flex;

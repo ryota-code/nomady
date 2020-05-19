@@ -12,6 +12,7 @@ gem 'rails', '~> 5.2.4'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'mysql2'
 
 # 画像投稿
 gem 'carrierwave'
@@ -61,6 +62,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -75,6 +80,10 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+end
+
+group :production, :stagiinstall pythonng do
+  gem 'unicorn'
 end
 
 group :test do

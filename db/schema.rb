@@ -12,10 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2020_04_19_091551) do
 
-  create_table "cafeposts", force: :cascade do |t|
+  create_table "cafeposts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "title"
     t.text "content"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -29,28 +29,28 @@ ActiveRecord::Schema.define(version: 2020_04_19_091551) do
     t.index ["user_id"], name: "index_cafeposts_on_user_id"
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
-    t.integer "user_id"
-    t.integer "cafepost_id"
+    t.bigint "user_id"
+    t.bigint "cafepost_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cafepost_id"], name: "index_comments_on_cafepost_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "cafepost_id", null: false
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "cafepost_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cafepost_id"], name: "index_favorites_on_cafepost_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "relationships", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "follow_id"
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "follow_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["follow_id"], name: "index_relationships_on_follow_id"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_091551) do
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
-  create_table "taggings", force: :cascade do |t|
+  create_table "taggings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
     t.integer "taggable_id"
@@ -77,15 +77,15 @@ ActiveRecord::Schema.define(version: 2020_04_19_091551) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
+  create_table "tags", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", collation: "utf8_bin"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
@@ -96,4 +96,9 @@ ActiveRecord::Schema.define(version: 2020_04_19_091551) do
     t.string "detail"
   end
 
+  add_foreign_key "cafeposts", "users"
+  add_foreign_key "comments", "cafeposts"
+  add_foreign_key "comments", "users"
+  add_foreign_key "relationships", "users"
+  add_foreign_key "relationships", "users", column: "follow_id"
 end

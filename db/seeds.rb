@@ -1,7 +1,7 @@
 
-User.create!(name: "ミューツー",
-            email: "example@nomady.com",
-            detail: "技を受けた時、技のPPを2減らす。／レベルの高い野生のポケモンと出会いやすくなる。",
+User.create!(name: "testuser",
+            email: "test@example.com",
+            detail: "テストユーザーです",
             password: "admin",
             password_confirmation: "admin",
             admin: true)
