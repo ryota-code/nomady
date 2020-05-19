@@ -58,9 +58,11 @@ gem 'acts-as-taggable-on', '~> 6.0'
 #検索機能
 gem 'ransack'
 
+# 環境変数の管理をするもの
+gem 'dotenv-rails'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
