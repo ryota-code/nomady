@@ -24,9 +24,13 @@
         <dd><%= f.text_field :tag_list, value: @cafepost.tag_list.join(','), data: {role: "tagsinput"} %></dd>
       </dl>
       
-      <dl>
-        <dd>WiFi <%= f.check_box :wifi, :as => :boolean %></dd>
-        <dd>コンセント <%= f.check_box :power, :as => :boolean %></dd>
+      <dl class="checkbox">
+        <label>
+          <%= f.check_box :wifi, :as => :boolean, class: 'checkbox-input' %><span class="checkbox-parts">WiFi</span>
+        </label>
+        <label>
+          <%= f.check_box :power, :as => :boolean, class: 'checkbox-input' %><span class="checkbox-parts">コンセント</span>
+        </label>
       </dl>
       
       <h2>カフェの住所</h2>
