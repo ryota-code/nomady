@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#top'
+  root 'cafeposts#index'
   
   # ユーザー
   get '/signup' => "users#new"
