@@ -84,10 +84,6 @@ group :production, :staging do
   gem 'unicorn'
 end
 
-group :production do
-  gem 'fog'
-end
-
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'chromedriver-helper'
