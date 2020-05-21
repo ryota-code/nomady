@@ -19,6 +19,7 @@ gem 'bcrypt_pbkdf'
 # 画像投稿
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog-aws'
 
 # Bootstrap追加
 gem 'bootstrap-sass', '3.3.7'

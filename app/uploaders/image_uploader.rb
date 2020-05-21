@@ -1,6 +1,17 @@
 class ImageUploader < CarrierWave::Uploader::Base
   # リサイズしたり画像形式を変更するのに必要
   include CarrierWave::RMagick
+  
+  if Rails.env.production? || Rails.env.staging?
+    storage :fog
+  else
+    storage :file
+  end
+ 
+  # S3のディレクトリ名
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
 
   # 画像の上限を100x100にする
   process resize_to_fit: [400, 400]
