@@ -23,9 +23,6 @@ gem 'rmagick'
 # Bootstrap追加
 gem 'bootstrap-sass', '3.3.7'
 
-# Twitterログイン実装
-gem 'omniauth-twitter'
-
 # サンプルユーザー追加
 gem 'faker', '1.7.3'
 
@@ -60,6 +57,7 @@ gem 'ransack'
 
 # 環境変数の管理をするもの
 gem 'dotenv-rails'
+gem 'listen', '>= 3.0.5', '< 3.2'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -73,7 +71,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'pry-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rails'
