@@ -2,7 +2,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # リサイズしたり画像形式を変更するのに必要
   include CarrierWave::RMagick
   
-  strage :fog
+  storage :fog
  
   # S3のディレクトリ名
   def store_dir

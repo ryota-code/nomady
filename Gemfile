@@ -85,7 +85,7 @@ group :production, :staging do
 end
 
 group :production do
-  gem 'fog', '1.42'
+  gem 'fog'
 end
 
 group :test do
