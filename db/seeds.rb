@@ -20,14 +20,14 @@ User.create!(name: "testuser",
         )
 end
 
-users = User.order(:created_at).take(10)
-2.times do
-  title = "スターバックス"
-  content = Faker::Lorem.sentence(5)
-  postcode =  Faker::Address.postcode
-  address_all = Faker::Address.state + Faker::Address.city
-  tag_list = "席いっぱい,コーヒー美味しい"
-  wifi = "1"
-  power = "1"
-  users.each { |user| user.cafeposts.create!(title: title, content: content, wifi: wifi, power: power, postcode: postcode, address_all: address_all, tag_list: tag_list ) }
-end
+# users = User.order(:created_at).take(10)
+# 2.times do
+#   title = "スターバックス"
+#   content = Faker::Lorem.sentence(5)
+#   postcode =  Faker::Address.postcode
+#   address_all = Faker::Address.state + Faker::Address.city
+#   tag_list = "席いっぱい,コーヒー美味しい"
+#   wifi = "1"
+#   power = "1"
+#   users.each { |user| user.cafeposts.create!(title: title, content: content, wifi: wifi, power: power, postcode: postcode, address_all: address_all, tag_list: tag_list ) }
+# end
