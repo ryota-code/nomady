@@ -12,7 +12,7 @@ default: &default
 development:
   adapter: mysql2
   encoding: utf8
-  database: nomady_production
+  database: nomady_development
   pool: 5
   username: root
   password:
