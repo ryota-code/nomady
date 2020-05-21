@@ -2,11 +2,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # リサイズしたり画像形式を変更するのに必要
   include CarrierWave::RMagick
   
-  if Rails.env.production? || Rails.env.staging?
-    storage :fog
-  else
-    storage :file
-  end
+  strage :fog
  
   # S3のディレクトリ名
   def store_dir
