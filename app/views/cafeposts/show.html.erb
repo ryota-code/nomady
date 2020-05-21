@@ -20,15 +20,28 @@
         <%= @cafepost.updated_at.strftime("%Y/%m/%d") %>
       </p>
       <p class="post-content"><%= @cafepost.content %></p>
-        <%= render "favorites/favorite_form", cafepost: @cafepost %>
-        
+      <div class="wifi-power">
+    <% if @cafepost.wifi %>
+    <p><%= icon('fas', 'wifi fa-lg icon-m') %>Wifiあり</p>
+    <% else %>
+    <p>Wifiなし</p>
+    <% end %>
+    <% if @cafepost.power %>
+    <p><%= icon('fas', 'plug fa-lg icon-m') %>電源あり</p>
+    <% else %>
+    <p>電源なし</p>
+    <% end %>
+  </div>
    <div class="address_all">
-    <%= icon('fas', 'map-marker-alt fa-2x') %>
+    <%= icon('fas', 'map-marker-alt fa-lg') %>
     <div class="address">
-      <p class="post-postcode">〒<%= @cafepost.postcode %></p>
       <p class="address"><%= @cafepost.address_all %></p>
     </div>
   </div>
+   <div class="post-detail-favorite">
+        <%= render "favorites/favorite_form", cafepost: @cafepost %>
+   </div>
+        
     </div>
   </div>
   

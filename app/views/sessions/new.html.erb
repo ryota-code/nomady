@@ -9,9 +9,13 @@
         <dt>パスワード</dt>
         <dd><%= f.password_field :password, class:'form-control' %></dd>
     </dl>
+    
 
     <%= f.submit "ログイン", class: "btn btn-login" %>
     <% end %>
+    <div class="guest-btn">
+        <%= link_to 'ゲストユーザーログイン', guest_login_path, class: 'btn', method: :post %>
+      </div>
     
      <p>初めてのご利用ですか? <%= link_to "新規登録はこちら", signup_path %></p>
 </div>
