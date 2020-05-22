@@ -2,6 +2,7 @@ require 'carrierwave/storage/abstract'
 require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
  
+unless Rails.env.development? || Rails.env.test?
 CarrierWave.configure do |config|
   config.fog_provider = 'fog/aws'
   config.fog_credentials = {
@@ -11,6 +12,8 @@ CarrierWave.configure do |config|
     region: ENV['AWS_REGION'],
   }
   config.fog_directory = 'nomady'
+  config.cache_storage = :fog
+end
 end
  
 CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
