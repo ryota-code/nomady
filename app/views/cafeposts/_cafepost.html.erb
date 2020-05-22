@@ -6,7 +6,7 @@
         <% if cafepost.image.url.nil? %>
         <%= image_tag "noimage.png", alt: "thumbnail" %>
         <% else %>
-        <%= image_tag cafepost.image.to_s.thumb.url, alt: "thumbnail"%>
+        <%= image_tag cafepost.image.thumb.url, alt: "thumbnail"%>
         <% end %>
       <div class="mask">
   		<div class="caption">クリックして詳細を表示</div>
