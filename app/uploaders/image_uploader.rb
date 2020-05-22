@@ -1,7 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
   # リサイズしたり画像形式を変更するのに必要
   include CarrierWave::RMagick
-  
+
   if Rails.env.development?
     storage :file
   elsif Rails.env.test?
@@ -9,7 +9,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   else
     storage :fog
   end
-  
+
   # S3のディレクトリ名
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
@@ -23,7 +23,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # サムネイルサイズ
   version :thumb do
-    process resize_to_fit: [300, 300,]
+    process resize_to_fit: [300, 300]
   end
 
   version :thumb23 do
@@ -33,7 +33,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :profile_image do
     process resize_to_fit: [80, 80]
   end
-  
+
   version :profile_top do
     process resize_to_fill: [40, 40]
   end

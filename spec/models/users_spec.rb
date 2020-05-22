@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before do 
+  before do
     @user = build(:user)
   end
 
   describe 'バリデーション' do
-
     it 'nameが空だとNG' do
       @user.name = ''
       expect(@user.valid?).to eq(false)
@@ -16,18 +15,18 @@ RSpec.describe User, type: :model do
       @user.email = ''
       expect(@user.valid?).to eq(false)
     end
-    
+
     it 'detailが空だとNG' do
       @user.detail = ''
       expect(@user.valid?).to eq(false)
     end
-    
+
     describe 'password' do
       it 'passwordが空だとNG' do
         @user.password = ''
         expect(@user.valid?).to eq(false)
       end
-      
+
       it 'passwordが3文字以下だとNG' do
         @user.password.length <= 3
         expect(@user.valid?).to eq(false)

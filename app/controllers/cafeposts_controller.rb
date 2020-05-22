@@ -7,14 +7,14 @@ class CafepostsController < ApplicationController
     @cafeposts = @q.result(distinct: true).page(params[:page]).per(10)
     @favorite_ranks = Cafepost.find(Favorite.group(:cafepost_id).order('count(cafepost_id) desc').limit(10).pluck(:cafepost_id))
   end
-  
+
   def tagindex
     @tag = params[:tag_name]
-    if params[:tag_name]
-      @cafeposts = Cafepost.tagged_with(params[:tag_name]).page(params[:page]).per(10)
-    else
-      @cafeposts = Cafepost.all.page(params[:page]).per(10)
-    end
+    @cafeposts = if params[:tag_name]
+                   Cafepost.tagged_with(params[:tag_name]).page(params[:page]).per(10)
+                 else
+                   Cafepost.all.page(params[:page]).per(10)
+                 end
   end
 
   def new
@@ -28,8 +28,7 @@ class CafepostsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
-      marker.infowindow render_to_string( partial: "shared/infowindow", locals: { place: place} )
-      
+      marker.infowindow render_to_string(partial: 'shared/infowindow', locals: { place: place })
     end
   end
 
@@ -65,8 +64,8 @@ class CafepostsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
-      marker.infowindow render_to_string( partial: "shared/infowindow",
-                                          locals: { place: place} )
+      marker.infowindow render_to_string(partial: 'shared/infowindow',
+                                         locals: { place: place })
     end
   end
 
@@ -75,7 +74,7 @@ class CafepostsController < ApplicationController
   def cafepost_params
     params.require(:cafepost).permit(:wifi, :power, :image, :title, :content, :postcode, :address_all, :tag_list)
   end
-  
+
   def search_params
     params.require(:q).permit(:title_or_address_all_cont, :wifi_eq, :power_eq)
   end

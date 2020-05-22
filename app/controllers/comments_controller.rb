@@ -15,14 +15,12 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update; end
-  
+
   def destroy
     @comment = Comment.find(params[:id])
-    if @comment.destroy
-      render :index
-    end
+    render :index if @comment.destroy
   end
-  
+
   private
 
   def comment_params

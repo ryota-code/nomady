@@ -4,22 +4,22 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'bcrypt', '3.1.12'
+gem 'bcrypt_pbkdf'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'coffee-rails', '~> 4.2'
+gem 'ed25519'
 gem 'jbuilder', '~> 2.5'
+gem 'mysql2'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.4'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-gem 'mysql2'
-gem 'ed25519'
-gem 'bcrypt_pbkdf'
 
 # 画像投稿
 gem 'carrierwave'
-gem 'rmagick'
 gem 'fog-aws'
+gem 'rmagick'
 
 # Bootstrap追加
 gem 'bootstrap-sass', '3.3.7'
@@ -53,7 +53,7 @@ gem 'dotenv-rails'
 # タグ付け機能追加
 gem 'acts-as-taggable-on', '~> 6.0'
 
-#検索機能
+# 検索機能
 gem 'ransack'
 
 # 環境変数の管理をするもの
@@ -62,13 +62,13 @@ gem 'listen', '>= 3.0.5', '< 3.2'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'rails-controller-testing'
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
 end
 
 group :development do
