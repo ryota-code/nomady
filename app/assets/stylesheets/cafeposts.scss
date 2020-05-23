@@ -286,6 +286,9 @@
 
 
 @include mq(sp){
+  #cell{
+    height: auto;
+  }
   .post-wrap{
     width: 90%;
   }
