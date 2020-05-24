@@ -4,16 +4,16 @@ class CafepostsController < ApplicationController
   before_action :set_cafepost, only: %i[show edit update]
   def index
     @q = Cafepost.ransack(params[:q])
-    @cafeposts = @q.result(distinct: true).page(params[:page]).per(10)
-    @favorite_ranks = Cafepost.find(Favorite.group(:cafepost_id).order('count(cafepost_id) desc').limit(10).pluck(:cafepost_id))
+    @cafeposts = @q.result(distinct: true).page(params[:page]).per(6)
+    @favorite_ranks = Cafepost.find(Favorite.group(:cafepost_id).order('count(cafepost_id) desc').limit(6).pluck(:cafepost_id))
   end
 
   def tagindex
     @tag = params[:tag_name]
     @cafeposts = if params[:tag_name]
-                   Cafepost.tagged_with(params[:tag_name]).page(params[:page]).per(10)
+                   Cafepost.tagged_with(params[:tag_name]).page(params[:page]).per(6)
                  else
-                   Cafepost.all.page(params[:page]).per(10)
+                   Cafepost.all.page(params[:page]).per(6)
                  end
   end
 

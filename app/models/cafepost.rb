@@ -3,7 +3,7 @@ class Cafepost < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 20 }
-  validates :content, presence: true, length: { maximum: 140 }
+  validates :content, presence: true, length: { maximum: 60 }
   mount_uploader :image, ImageUploader
 
   # お気に入り
