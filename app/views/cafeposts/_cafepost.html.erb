@@ -1,5 +1,6 @@
 
 <li class="post-item col-md-6" id="cafepost-<%= cafepost.id %>" data-cafepost-id="<%= cafepost.id %>">
+  <%= link_to(cafepost, class: "post-link") do %>
   <div id="cell">
     <div class="cafepost-thumbnail">
       <%= link_to(cafepost, class: "post-item-link") do %>
@@ -26,6 +27,7 @@
       <% else %>
       <p>Wifiなし</p>
       <% end %>
+      
       <% if cafepost.power %>
       <p><%= icon('fas', 'plug fa-lg icon-m') %>電源あり</p>
       <% else %>
@@ -53,14 +55,17 @@
           <%= cafepost.user.name%>
         </div>
         <% end %>
+        
       <div class="delete-edit">
         <% if good_user?(cafepost.user) %>
         <%= link_to cafepost, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
         <%= icon('fas', 'trash-alt fa-lg') %>
         <% end %>
+        
         <%= link_to edit_cafepost_path(cafepost) do %>
         <%= icon('fas', 'edit fa-lg') %>
         <% end %>
+        
         <% end %>
       </div>
       <div class="timestamp">
@@ -69,5 +74,6 @@
     </div>
     
   </div>
+  <% end %>
 </li>
   

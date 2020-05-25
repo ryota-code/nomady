@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       # フラッシュメッセージ
       flash[:notice] = "#{user.name}でログインしました。"
       # 特定のページにリダイレクトする
-      redirect_to('/cafeposts')
+      redirect_back_or cafeposts_path
     else
       # エラーメッセージの表示
       flash.now[:danger] = 'メールアドレスもしくはパスワードが正しくありません。'

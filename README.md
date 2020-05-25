@@ -1,55 +1,46 @@
-# フィットネス記録アプリ Nomady
+# Nomady
+<img width="1440" alt="スクリーンショット 2020-05-25 18 34 31" src="https://user-images.githubusercontent.com/56670415/82800383-92104e00-9eb6-11ea-8251-cf39b1a954ba.png">
 
-## Overview  
-カフェを登録することができるSNSです。 
-勉強できるカフェを素早く探せることに重点をおきました。 
-完全独学で、手を動かしながら、開発しました。    
+## 制作背景
 
-## 使用技術  
-### 技術のこだわりポイント  
-1. インフラにAWSを使用
-- 理由: 
-2. DevOps周りの効率化
-- 理由: 
-- CircleCIでCI/CD パイプラインの構築。(実装予定)
-- ローカルと本番にDocker（実装予定）
-3. 最適な設計
-- インフラ
-- 開発環境のコンテナ構成
-- Railsのコントローラ
-- テーブル設計
+カフェで勉強したいなと思った時にWifiとコンセントが無かったらちょっとガッカリしますよね。
 
-### 言語・フレームワーク・インフラ  
-  
-#### インフラ  
-AWSの各種サービス  
-構成は以下  
-Elastic Container Service(ECS) + RDS  + ALB + Route53 + VPC  
-本番環境でもコンテナ基盤を使用
+そんな不安をなくすために作ったのがこのサービスです。
 
-##### インフラ構成図  
-  
+みんなで勉強できるカフェを共有しよう！がコンセプトです。
 
-  
-#### バックエンド  
-Ruby2.6.3    
-Ruby on Rails 5  
-  
-#### フロントエンド   
-JavaScript  
+## URL
+https://nomady.site/
 
-#### 開発環境  
-Docker（実装予定）
+* ログインページから【testuser】としてゲストユーザーログインできます。
+* 本ポートフォリオは、タブレット・スマートフォンからもご覧いただけます。
 
-#### コンテナ構成
-1. Rails (App)
-2. Nginx (Web)
-3. MySQL (DB)
-  
+## 使用技術
+* Ruby 2.6.3, Rails 5.2.4.2
+* Nginx, unicorn
+* AWS (EC2, RDS for MySQL, S3, VPC, Route53, ALB, ACM)
+* Capistrano
+* RSpec
+* HTML, Sass, javascript, jQuery
 
-### その他  
-#### GitHubでIssueとブランチを連携してプルリクベースの開発  
-OSSや実際の開発で採用されているフローをシミュレーションして開発。  
-  
-### URL
-https://nomady.site
+## AWS構成図
+![ER図2](https://user-images.githubusercontent.com/56670415/82792357-3f309980-9eaa-11ea-9c40-b6a4300a8b8f.png)
+
+
+## 機能一覧
+* ユーザー登録・ログイン機能
+* 投稿機能（画像のアップロードにCarrierWaveを使用）
+* 投稿一覧・投稿詳細表示機能
+* 投稿管理機能
+* ページネーション機能（Kaminari）
+* いいね機能（Ajax）
+* コメント機能（Ajax）
+* 検索機能（Ransackを使用）
+* フォロー・フォロワー機能
+* googlemapにすべての投稿を表示
+* 住所自動登録機能(jpPostal使用)
+* タグ付け機能、タグ検索機能(acts-as-taggable-on使用)
+
+## 課題、今後実装したい機能
+* テストを充実させる
+* 追加機能の実装
