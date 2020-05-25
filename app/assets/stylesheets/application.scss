@@ -79,3 +79,9 @@ input{
 button{
   outline:none;
 }
+
+@include mq(sp){
+  h1{
+    font-size: 20px;
+  }
+}

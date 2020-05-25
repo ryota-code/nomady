@@ -8,17 +8,19 @@
 }
 .tabnav li{
    display: inline;
-   margin: 0 30px 0 30px;
+   margin: 0;
 }
 .tabnav li a{
     display: inline-block;
     background: #fff;
     color: $main-color;
-    padding: 10px 100px;
+    padding: 10px 200px;
     border-radius: 10px;
     border: 1px solid $main-color;
     text-decoration: none;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
 }
+
 .tabnav li a:hover,
 .tabnav li a.active{
     

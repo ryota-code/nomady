@@ -7,6 +7,11 @@ class CafepostsController < ApplicationController
     @cafeposts = @q.result(distinct: true).page(params[:page]).per(6)
     @favorite_ranks = Cafepost.find(Favorite.group(:cafepost_id).order('count(cafepost_id) desc').limit(6).pluck(:cafepost_id))
   end
+  
+  def search
+    @q = Cafepost.ransack(search_params)
+    @cafeposts = @q.result(distinct: true).page(params[:page]).per(6)
+  end
 
   def tagindex
     @tag = params[:tag_name]
@@ -76,7 +81,7 @@ class CafepostsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit(:title_or_address_all_cont, :wifi_eq, :power_eq)
+    params.require(:q).permit!
   end
 
   def good_user

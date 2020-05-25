@@ -1,4 +1,4 @@
-<%= search_form_for(@q, url:cafeposts_path) do |f| %>
+<%= search_form_for(@q, url:search_path) do |f| %>
 <div class="search-form-wrapper">
   <div class="search-form-item cp_iptxt">
     <%= f.search_field :title_or_address_all_cont, placeholder: "", class: "ef" %>

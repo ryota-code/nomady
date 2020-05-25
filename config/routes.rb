@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   #投稿
   get '/post' => 'cafeposts#new'
   get '/cafeposts/gmap' => 'cafeposts#gmap'
+  get '/search' => 'cafeposts#search'
   get 'tags/:tag_name', to: 'cafeposts#tagindex', as: :tag_name
   resources :cafeposts do
     resources :comments

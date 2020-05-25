@@ -1,0 +1,23 @@
+<div class="container">
+  <% if params[:q]['title_or_address_all_cont'].present? && params[:q]['wifi_eq'] == "1" && params[:q]['power_eq'] == "1" %>
+  <h1>「<%= params[:q][:title_or_address_all_cont] %>」で「wifiあり・電源あり」の検索結果: <%= @cafeposts.count %>個</h1>
+  <% elsif params[:q]['title_or_address_all_cont'].present? && params[:q]['wifi_eq'] == "1" && params[:q]['power_eq'] != "1" %>
+  <h1>「<%= params[:q][:title_or_address_all_cont] %>」で「wifiあり」の検索結果: <%= @cafeposts.count %>個</h1>
+  <% elsif params[:q]['title_or_address_all_cont'].present? && params[:q]['wifi_eq'] != "1" && params[:q]['power_eq'] == "1" %>
+  <h1>「<%= params[:q][:title_or_address_all_cont] %>」で「電源あり」の検索結果: <%= @cafeposts.count %>個</h1>
+  <% elsif params[:q]['title_or_address_all_cont'] = "" && params[:q]['wifi_eq'] == "1" && params[:q]['power_eq'] == "1" %>
+  <h1>「wifiあり・電源あり」の検索結果: <%= @cafeposts.count %>個</h1>
+  <% elsif params[:q]['title_or_address_all_cont'] = "" && params[:q]['wifi_eq'] == "1" && params[:q]['power_eq'] != "1" %>
+  <h1>「wifiあり」の検索結果: <%= @cafeposts.count %>個</h1>
+  <% elsif params[:q]['title_or_address_all_cont'] = "" && params[:q]['wifi_eq'] != "1" && params[:q]['power_eq'] == "1" %>
+  <h1>「電源あり」の検索結果: <%= @cafeposts.count %>個</h1>
+  <% else %>
+  <h1>検索に一致する商品はありませんでした</h1>
+  <% end %>
+  
+  
+    <ul class="post-items">
+        <%= render @cafeposts %>
+    </ul>
+    <%= paginate @cafeposts %>
+</div>
