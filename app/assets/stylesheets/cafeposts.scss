@@ -302,6 +302,14 @@
     display: block;
   }
   
+  .post-content{
+    display: none;
+  }
+  
+  .address_all{
+    display: none;
+  }
+  
   .post-conent-wifi {
     display: block;
     text-align: center;
@@ -311,5 +319,19 @@
   .post-conent-power{
     display: block;
     text-align: center;
+  }
+  
+  .post-user-detail{
+    img{
+      width: 40px;
+      height: 40px;
+    }
+    p{
+      line-height: 2;
+    }
+  }
+  .post-detail-left{
+    width: 100%;
+    margin-bottom: 10px;
   }
 }
