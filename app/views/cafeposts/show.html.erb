@@ -55,14 +55,14 @@
       <div>コメント(<%= @comments.count %>)</div>
   <%= render 'comments/index', { comments: @comments } %>
   
-  <% if logged_in? %>
+
     <%= form_with(model: [@cafepost, @comment]) do |f| %>
       <%= f.text_area :content %>
       <%= f.hidden_field :cafepost_id, value: @cafepost.id %>
       <br>
       <%= f.submit 'コメントする', class: "btn btn-comment" %>
     <% end %>
-  <% end %>
+
     </div>
     
     <div id="tab02">

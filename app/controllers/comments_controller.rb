@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :logged_in_user
   def create
     @cafepost = Cafepost.find(params[:cafepost_id])
     @comment = Comment.new(comment_params)

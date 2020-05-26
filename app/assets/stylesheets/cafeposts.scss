@@ -99,11 +99,12 @@
 
 .wifi-power{
   display: flex;
-}
-
-.wifi-power{
   i{
     color: $main-color;
+  }
+  p{
+    margin-right: 10px;
+    line-height: 40px;
   }
 }
 
