@@ -1,6 +1,5 @@
 # Nomady
-<img width="1440" alt="スクリーンショット 2020-05-25 18 34 31" src="https://user-images.githubusercontent.com/56670415/82800383-92104e00-9eb6-11ea-8251-cf39b1a954ba.png">
-
+![全体画像](https://user-images.githubusercontent.com/56670415/83018170-cecb7900-a05f-11ea-854d-6140cc37f915.png)
 ## 制作背景
 
 カフェで勉強したいなと思った時にWifiとコンセントが無かったらちょっとガッカリしますよね。
