@@ -1,15 +1,15 @@
-
   <div class="top">
     <div class="top-wrapper">
       <div class="copy">
-        <h2>ノマドカフェを登録しよう・共有しよう</h2>
+        <h2>ノマドカフェを見つけよう・共有しよう</h2>
         <p>勉強しようと思ってカフェに入ったけど、Wifi・コンセントがない...<br>そんな経験から生まれたサービスです</p>
-        
       </div>
-      <%= link_to 'ログイン', login_path, class: 'btn btn-login' %>
-      <%= link_to '新規登録', signup_path, class: 'btn btn-register' %>
       <div class="guest-btn">
         <%= link_to 'ゲストユーザーログイン', guest_login_path, class: 'btn', method: :post %>
+      </div>
+      <div class="login-register">
+        <%= link_to 'ログイン', login_path, class: 'btn btn-login' %>
+        <%= link_to '新規登録', signup_path, class: 'btn btn-register' %>
       </div>
     </div>
   </div>
