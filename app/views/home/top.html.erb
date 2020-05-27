@@ -13,3 +13,28 @@
       </div>
     </div>
   </div>
+  
+  <div class="container">
+  <h1 class="head">ノマドカフェを探す</h1>
+  <%= render 'cafeposts/search_form' %>
+
+  <ul class="tabnav">
+    <li><a href="#tab01">新着カフェ</a></li>
+    <li><a href="#tab02">人気カフェ</a></a></li>
+  </ul>
+  <div class="tabcontent">
+    <div id="tab01">
+      <ul class="post-items">
+        <%= render @cafeposts %>
+    
+      </ul>
+      <%= paginate @cafeposts %>
+    </div>
+    
+    <div id="tab02">
+      <ul class="post-items">
+        <%= render @favorite_ranks %>
+      </ul>
+    </div>
+  </div>
+</div>
