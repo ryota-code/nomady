@@ -22,7 +22,7 @@ gem 'fog-aws'
 gem 'rmagick'
 
 # Bootstrap追加
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-sass', '3.4.1'
 
 # サンプルユーザー追加
 gem 'faker', '1.7.3'
