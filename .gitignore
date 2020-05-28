@@ -30,7 +30,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# GOOGLEMAPAPI
+# 環境変数
 /.env
 
  # Ignore uploaded files in development
